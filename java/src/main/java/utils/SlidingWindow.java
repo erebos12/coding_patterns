@@ -30,4 +30,18 @@ public class SlidingWindow {
         }
         return max_sum;
     }
+
+    public static int maxSumOfKElementsInArray(int arr[], int n, int k) {
+        int max_sum = Integer.MIN_VALUE;
+        for (int i = 0; i < n - k + 1; i++) {
+            int current_sum = 0;
+            for (int j = 0; j < k; j++)
+                current_sum = current_sum + arr[i + j];
+
+            // Update result if required.
+            max_sum = Math.max(current_sum, max_sum);
+        }
+
+        return max_sum;
+    }
 }

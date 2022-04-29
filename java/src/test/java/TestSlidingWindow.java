@@ -44,6 +44,15 @@ class TestSlidingWindow {
         max_sum = maxSumOfKElementsInArray(list, 1);
         assertEquals(10, max_sum);
     }
+
+    @Test
+    void testMaxSumOfKElementsInArray_2() {
+        int[] arr = {1, 4, 2, 10, 2, 3, 1, 0, 20};
+        int k = 4;
+        int n = arr.length;
+        int result = maxSumOfKElementsInArray(arr, n, k);
+        assertEquals(24, result);
+    }
 }
 
 
