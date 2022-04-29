@@ -4,6 +4,10 @@ import java.util.List;
 
 public class SlidingWindow {
 
+    private SlidingWindow() {
+        throw new IllegalStateException("Utility class");
+    }
+
     public static int sumFromLowerToUpperIndex(List<Integer> list, int lower, int upper) throws SlidingWindowException {
         if (upper > list.size() || lower >= list.size()) {
             throw new SlidingWindowException("Invalid upper or lower index!");
@@ -43,7 +47,6 @@ public class SlidingWindow {
             windowSum += arr[i] - arr[i - k];
             maxSum = Math.max(maxSum, windowSum);
         }
-
         return maxSum;
     }
 }
