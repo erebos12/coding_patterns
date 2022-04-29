@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.Test;
+import utils.SlidingWindowException;
 
 import java.util.List;
 
@@ -9,7 +10,7 @@ import static utils.SlidingWindow.sumFromLowerToUpperIndex;
 class TestSlidingWindow {
 
     @Test
-    void sumLowerUpper() throws Exception {
+    void sumLowerUpper() throws SlidingWindowException {
         var sum = sumFromLowerToUpperIndex(List.of(1, 4, 7, 8), 0, 3);
         assertEquals(20, sum);
 
@@ -27,7 +28,7 @@ class TestSlidingWindow {
     }
 
     @Test
-    void testMaxSumOfKElementsInArray() throws Exception {
+    void testMaxSumOfKElementsInArray() throws SlidingWindowException {
         List<Integer> list = List.of(1, 4, 2, 10, 2, 3, 1, 0, 20);
         int max_sum = maxSumOfKElementsInArray(list, 4);
         assertEquals(24, max_sum);
@@ -46,7 +47,7 @@ class TestSlidingWindow {
     }
 
     @Test
-    void testMaxSumOfKElementsInArray_2() {
+    void testMaxSumOfKElementsInArray_2() throws SlidingWindowException {
         int[] arr = {1, 4, 2, 10, 2, 3, 1, 0, 20};
         int k = 4;
         int n = arr.length;

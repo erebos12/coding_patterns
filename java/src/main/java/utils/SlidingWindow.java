@@ -4,9 +4,9 @@ import java.util.List;
 
 public class SlidingWindow {
 
-    public static int sumFromLowerToUpperIndex(List<Integer> list, int lower, int upper) throws Exception {
+    public static int sumFromLowerToUpperIndex(List<Integer> list, int lower, int upper) throws SlidingWindowException {
         if (upper > list.size() || lower >= list.size()) {
-            throw new Exception("Invalid upper or lower index!");
+            throw new SlidingWindowException("Invalid upper or lower index!");
         }
         int sum = 0;
         for (int i = lower; i <= upper; i++) {
@@ -15,9 +15,9 @@ public class SlidingWindow {
         return sum;
     }
 
-    public static int maxSumOfKElementsInArray(List<Integer> list, int k) throws Exception {
+    public static int maxSumOfKElementsInArray(List<Integer> list, int k) throws SlidingWindowException {
         if (k > list.size()) {
-            throw new Exception("Invalid window size!");
+            throw new SlidingWindowException("Invalid window size!");
         }
         int maxSum = 0;
         int lower = 0;
@@ -31,14 +31,19 @@ public class SlidingWindow {
         return maxSum;
     }
 
-    public static int maxSumOfKElementsInArray(int[] arr, int n, int k) {
-        int maxSum = Integer.MIN_VALUE;
-        for (int i = 0; i < n - k + 1; i++) {
-            int currentSum = 0;
-            for (int j = 0; j < k; j++)
-                currentSum = currentSum + arr[i + j];
-            maxSum = Math.max(currentSum, maxSum);
+    public static int maxSumOfKElementsInArray(int[] arr, int n, int k) throws SlidingWindowException {
+        if (n < k) {
+            throw new SlidingWindowException("Invalid window size!");
         }
+        int maxSum = 0;
+        for (int i = 0; i < k; i++)
+            maxSum += arr[i];
+        int windowSum = maxSum;
+        for (int i = k; i < n; i++) {
+            windowSum += arr[i] - arr[i - k];
+            maxSum = Math.max(maxSum, windowSum);
+        }
+
         return maxSum;
     }
 }
