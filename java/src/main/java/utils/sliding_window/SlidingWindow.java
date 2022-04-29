@@ -1,4 +1,4 @@
-package utils;
+package utils.sliding_window;
 
 import java.util.List;
 
