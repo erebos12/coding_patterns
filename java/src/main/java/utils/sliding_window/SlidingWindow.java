@@ -2,6 +2,10 @@ package utils.sliding_window;
 
 import java.util.List;
 
+/**
+ * https://www.geeksforgeeks.org/window-sliding-technique/
+ **/
+
 public class SlidingWindow {
 
     private SlidingWindow() {
