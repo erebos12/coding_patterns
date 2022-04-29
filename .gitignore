@@ -1,0 +1,6 @@
+.idea
+.gradle
+java/build
+gradle
+
+.dcignore
