@@ -1,11 +1,11 @@
 import org.junit.jupiter.api.Test;
-import utils.sliding_window.SlidingWindowException;
+import sliding_window.SlidingWindowException;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static utils.sliding_window.SlidingWindow.maxSumOfKElementsInArray;
-import static utils.sliding_window.SlidingWindow.sumFromLowerToUpperIndex;
+import static sliding_window.SlidingWindow.maxSumOfKElementsInArray;
+import static sliding_window.SlidingWindow.sumFromLowerToUpperIndex;
 
 class TestSlidingWindow {
 
