@@ -21,6 +21,8 @@ class TestSlowFastPointers {
         assertArrayEquals(new int[]{1, 3, 12, 0, 0}, SlowFastPointer.moveZeros(nums));
         nums = new int[]{0, 7, 0, 3, 12, 8, 0, 9};
         assertArrayEquals(new int[]{7, 3, 12, 8, 9, 0, 0, 0}, SlowFastPointer.moveZeros(nums));
+        nums = new int[]{1, 0, 3, 12, 8};
+        assertArrayEquals(new int[]{1, 3, 12, 8, 0}, SlowFastPointer.moveZeros(nums));
     }
 
     @Test
@@ -29,6 +31,8 @@ class TestSlowFastPointers {
         assertArrayEquals(new int[]{1, 3, 12, 0, 0}, SlowFastPointer.moveZerosInArray(nums));
         nums = new int[]{0, 7, 0, 3, 12, 8, 0, 9};
         assertArrayEquals(new int[]{7, 3, 12, 8, 9, 0, 0, 0}, SlowFastPointer.moveZerosInArray(nums));
+        nums = new int[]{1, 0, 3, 12, 8};
+        assertArrayEquals(new int[]{1, 3, 12, 8, 0}, SlowFastPointer.moveZerosInArray(nums));
     }
 }
 
