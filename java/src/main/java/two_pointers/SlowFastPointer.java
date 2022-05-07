@@ -31,4 +31,13 @@ public class SlowFastPointer {
         }
         return nums;
     }
+
+    public static int[] moveZerosInArray(int[] nums) {
+        for (int i = 0, j = 0; j < nums.length; j++) {
+            if (nums[j] != 0) {
+                swap(nums, i++, j);
+            }
+        }
+        return nums;
+    }
 }
