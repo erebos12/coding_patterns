@@ -18,7 +18,7 @@ public class SlowFastPointer {
         return count_zeros;
     }
 
-    public static int[] moveZeroes(int[] nums) {
+    public static int[] moveZeros(int[] nums) {
         int count_zeros = countZerosInArray(nums);
         for (int n = 0; n < count_zeros; n++) {
             int slow = 0;

@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Test;
+import two_pointers.SlowFastPointer;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static two_pointers.SlowFastPointer.moveZeroes;
 import static two_pointers.SlowFastPointer.swap;
 
 class TestSlowFastPointers {
@@ -18,9 +18,9 @@ class TestSlowFastPointers {
     @Test
     void moveZeros() {
         int[] nums = new int[]{0, 1, 0, 3, 12};
-        assertArrayEquals(new int[]{1, 3, 12, 0, 0}, moveZeroes(nums));
+        assertArrayEquals(new int[]{1, 3, 12, 0, 0}, SlowFastPointer.moveZeros(nums));
         nums = new int[]{0, 7, 0, 3, 12, 8, 0, 9};
-        assertArrayEquals(new int[]{7, 3, 12, 8, 9, 0, 0, 0}, moveZeroes(nums));
+        assertArrayEquals(new int[]{7, 3, 12, 8, 9, 0, 0, 0}, SlowFastPointer.moveZeros(nums));
     }
 }
 
