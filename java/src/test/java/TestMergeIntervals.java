@@ -2,6 +2,7 @@ import merge_intervals.Interval;
 import org.junit.jupiter.api.Test;
 
 import static merge_intervals.MergeIntervals.mergeIntervals;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 class TestMergeIntervals {
 
@@ -25,4 +26,8 @@ class TestMergeIntervals {
         arr[3] = new Interval(5, 7);
         mergeIntervals(arr);
     }
+
+
+
+
 }
