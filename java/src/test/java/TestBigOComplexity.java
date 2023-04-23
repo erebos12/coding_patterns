@@ -1,5 +1,10 @@
 import org.junit.jupiter.api.Test;
 
+import java.util.HashSet;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 public class TestBigOComplexity {
 
     @Test
@@ -23,5 +28,23 @@ public class TestBigOComplexity {
                 System.out.println("> " + i + j);
             }
         }
+    }
+
+    @Test
+    void testSet() {
+        assertFalse(isUniqueChars("dddd"));
+        assertTrue(isUniqueChars("Alex"));
+    }
+
+    boolean isUniqueChars(String s) {
+        HashSet<Character> set = new HashSet<>();
+        for (int i = 0; i < s.length(); i++) {
+            Character c = s.charAt(i);
+            if (set.contains(c)) {
+                return false;
+            }
+            set.add(c);
+        }
+        return true;
     }
 }
