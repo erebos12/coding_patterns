@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.function.Predicate;
 
 public class RemoveDuplicateStrings {
 
@@ -13,7 +12,11 @@ public class RemoveDuplicateStrings {
         return new ArrayList<>(new LinkedHashSet<>(list));
     }
 
-    public static <String> void removeDuplicates2(List<String> list) {
-
+    public static <String> void removeDuplicates2(String[] list) {
+        HashSet<String> set = new HashSet<>();
+        for (int i = 0; i < list.length; i++) {
+            set.add(list[i]);
+        }
+        
     }
 }
