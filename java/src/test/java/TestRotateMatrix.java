@@ -1,7 +1,8 @@
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import static matrix.MatrixUtils.printMatrix;
+import static matrix.MatrixUtils.print;
+import static matrix.MatrixUtils.transpose;
 import static matrix.RotateMatrix.rotateMatrix;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -54,7 +55,7 @@ public class TestRotateMatrix {
     @Test
     void testRotateMatrix2x2() {
         var rotated = rotateMatrix(matrix2x2);
-        printMatrix(matrix2x2);
+        print(matrix2x2);
         assertEquals(3, rotated[0][0]);
         assertEquals(1, rotated[0][1]);
         assertEquals(4, rotated[1][0]);
@@ -64,7 +65,7 @@ public class TestRotateMatrix {
     @Test
     void testRotateMatrix3x3() {
         var rotated = rotateMatrix(matrix3x3);
-        printMatrix(matrix3x3);
+        print(matrix3x3);
         assertEquals(7, rotated[0][0]);
         assertEquals(4, rotated[0][1]);
         assertEquals(1, rotated[0][2]);
@@ -80,7 +81,7 @@ public class TestRotateMatrix {
     void testRotateMatrix4x4() {
 
         var rotated = rotateMatrix(matrix4x4);
-        printMatrix(matrix4x4);
+        print(matrix4x4);
         assertEquals(13, rotated[0][0]);
         assertEquals(9, rotated[0][1]);
         assertEquals(5, rotated[0][2]);
@@ -102,10 +103,51 @@ public class TestRotateMatrix {
 
     @Test
     void testPrintMatrix() {
-        printMatrix(matrix2x2);
+        print(matrix2x2);
         System.out.println("========");
-        printMatrix(matrix3x3);
+        print(matrix3x3);
         System.out.println("========");
-        printMatrix(matrix4x4);
+        print(matrix4x4);
+    }
+
+    @Test
+    void testTranspose() {
+        int [][] transposed = transpose(matrix2x2);
+        assertEquals(1, transposed[0][0]);
+        assertEquals(3, transposed[0][1]);
+        assertEquals(2, transposed[1][0]);
+        assertEquals(4, transposed[1][1]);
+
+        transposed = transpose(matrix3x3);
+        assertEquals(1, transposed[0][0]);
+        assertEquals(4, transposed[0][1]);
+        assertEquals(7, transposed[0][2]);
+        assertEquals(2, transposed[1][0]);
+        assertEquals(5, transposed[1][1]);
+        assertEquals(8, transposed[1][2]);
+        assertEquals(3, transposed[2][0]);
+        assertEquals(6, transposed[2][1]);
+        assertEquals(9, transposed[2][2]);
+
+        transposed = transpose(matrix4x4);
+        assertEquals(1, transposed[0][0]);
+        assertEquals(5, transposed[0][1]);
+        assertEquals(9, transposed[0][2]);
+        assertEquals(13, transposed[0][3]);
+
+        assertEquals(2, transposed[1][0]);
+        assertEquals(6, transposed[1][1]);
+        assertEquals(10, transposed[1][2]);
+        assertEquals(14, transposed[1][3]);
+
+        assertEquals(3, transposed[2][0]);
+        assertEquals(7, transposed[2][1]);
+        assertEquals(11, transposed[2][2]);
+        assertEquals(15, transposed[2][3]);
+
+        assertEquals(4, transposed[3][0]);
+        assertEquals(8, transposed[3][1]);
+        assertEquals(12, transposed[3][2]);
+        assertEquals(16, transposed[3][3]);
     }
 }

@@ -2,13 +2,24 @@ package matrix;
 
 public class MatrixUtils {
 
-    public static void printMatrix(int[][] matrix) {
+    public static void print(int[][] matrix) {
         for (int row = 0; row < matrix.length; row++) {
             for (int col = 0; col < matrix[row].length; col++) {
                 String msg = "[%s][%s]=%s".formatted(row, col, matrix[row][col]);
                 System.out.println(msg);
             }
         }
+    }
+
+    public static int[][] transpose(int[][] matrix) {
+        int[][] transposed = new int[matrix.length][matrix.length];
+        for (int row = 0; row < matrix.length; row++) {
+            for (int col = 0; col < matrix[row].length; col++) {
+                transposed[row][col] = matrix[col][row];
+                transposed[col][row] = matrix[row][col];
+            }
+        }
+        return transposed;
     }
 
 
