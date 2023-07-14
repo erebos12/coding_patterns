@@ -114,6 +114,7 @@ public class TestRotateMatrix {
          TODO: create generic transpose test
          1. create randomized a matrix
          2. create a generic assert-method that checks if transpose worked correctly
+            - transposed matrix must have: orig[row][col] == transposed[col][row]
          */
 
         int[][] transposed = transpose(matrix2x2);
