@@ -3,11 +3,13 @@ package matrix;
 public class MatrixUtils {
 
     public static void printMatrix(int[][] matrix) {
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
-                String msg = "[%s][%s]=%s".formatted(i, j, matrix[i][j]);
+        for (int row = 0; row < matrix.length; row++) {
+            for (int col = 0; col < matrix[row].length; col++) {
+                String msg = "[%s][%s]=%s".formatted(row, col, matrix[row][col]);
                 System.out.println(msg);
             }
         }
     }
+
+
 }

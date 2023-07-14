@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static matrix.MatrixUtils.printMatrix;
@@ -6,15 +7,54 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestRotateMatrix {
 
+
+    public static int[][] matrix2x2;
+    public static int[][] matrix3x3;
+    public static int[][] matrix4x4;
+
+    @BeforeAll
+    static void setup() {
+        matrix2x2 = new int[2][2];
+        matrix2x2[0][0] = 1;
+        matrix2x2[0][1] = 2;
+        matrix2x2[1][0] = 3;
+        matrix2x2[1][1] = 4;
+
+        matrix3x3 = new int[3][3];
+        matrix3x3[0][0] = 1;
+        matrix3x3[0][1] = 2;
+        matrix3x3[0][2] = 3;
+        matrix3x3[1][0] = 4;
+        matrix3x3[1][1] = 5;
+        matrix3x3[1][2] = 6;
+        matrix3x3[2][0] = 7;
+        matrix3x3[2][1] = 8;
+        matrix3x3[2][2] = 9;
+
+        matrix4x4 = new int[4][4];
+        matrix4x4[0][0] = 1;
+        matrix4x4[0][1] = 2;
+        matrix4x4[0][2] = 3;
+        matrix4x4[0][3] = 4;
+        matrix4x4[1][0] = 5;
+        matrix4x4[1][1] = 6;
+        matrix4x4[1][2] = 7;
+        matrix4x4[1][3] = 8;
+        matrix4x4[2][0] = 9;
+        matrix4x4[2][1] = 10;
+        matrix4x4[2][2] = 11;
+        matrix4x4[2][3] = 12;
+        matrix4x4[3][0] = 13;
+        matrix4x4[3][1] = 14;
+        matrix4x4[3][2] = 15;
+        matrix4x4[3][3] = 16;
+    }
+
+
     @Test
     void testRotateMatrix2x2() {
-        int[][] matrix = new int[2][2];
-        matrix[0][0] = 1;
-        matrix[0][1] = 2;
-        matrix[1][0] = 3;
-        matrix[1][1] = 4;
-        var rotated = rotateMatrix(matrix);
-        printMatrix(matrix);
+        var rotated = rotateMatrix(matrix2x2);
+        printMatrix(matrix2x2);
         assertEquals(3, rotated[0][0]);
         assertEquals(1, rotated[0][1]);
         assertEquals(4, rotated[1][0]);
@@ -23,18 +63,8 @@ public class TestRotateMatrix {
 
     @Test
     void testRotateMatrix3x3() {
-        int[][] matrix = new int[3][3];
-        matrix[0][0] = 1;
-        matrix[0][1] = 2;
-        matrix[0][2] = 3;
-        matrix[1][0] = 4;
-        matrix[1][1] = 5;
-        matrix[1][2] = 6;
-        matrix[2][0] = 7;
-        matrix[2][1] = 8;
-        matrix[2][2] = 9;
-        var rotated = rotateMatrix(matrix);
-        printMatrix(matrix);
+        var rotated = rotateMatrix(matrix3x3);
+        printMatrix(matrix3x3);
         assertEquals(7, rotated[0][0]);
         assertEquals(4, rotated[0][1]);
         assertEquals(1, rotated[0][2]);
@@ -48,25 +78,9 @@ public class TestRotateMatrix {
 
     @Test
     void testRotateMatrix4x4() {
-        int[][] matrix = new int[4][4];
-        matrix[0][0] = 1;
-        matrix[0][1] = 2;
-        matrix[0][2] = 3;
-        matrix[0][3] = 4;
-        matrix[1][0] = 5;
-        matrix[1][1] = 6;
-        matrix[1][2] = 7;
-        matrix[1][3] = 8;
-        matrix[2][0] = 9;
-        matrix[2][1] = 10;
-        matrix[2][2] = 11;
-        matrix[2][3] = 12;
-        matrix[3][0] = 13;
-        matrix[3][1] = 14;
-        matrix[3][2] = 15;
-        matrix[3][3] = 16;
-        var rotated = rotateMatrix(matrix);
-        printMatrix(matrix);
+
+        var rotated = rotateMatrix(matrix4x4);
+        printMatrix(matrix4x4);
         assertEquals(13, rotated[0][0]);
         assertEquals(9, rotated[0][1]);
         assertEquals(5, rotated[0][2]);
@@ -84,5 +98,14 @@ public class TestRotateMatrix {
         assertEquals(8, rotated[3][2]);
         assertEquals(4, rotated[3][3]);
 
+    }
+
+    @Test
+    void testPrintMatrix() {
+        printMatrix(matrix2x2);
+        System.out.println("========");
+        printMatrix(matrix3x3);
+        System.out.println("========");
+        printMatrix(matrix4x4);
     }
 }
