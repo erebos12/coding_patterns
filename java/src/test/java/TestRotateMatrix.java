@@ -1,9 +1,7 @@
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import static matrix.MatrixUtils.print;
-import static matrix.MatrixUtils.transpose;
-import static matrix.RotateMatrix.rotateMatrix;
+import static matrix.MatrixUtils.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestRotateMatrix {
@@ -112,7 +110,7 @@ public class TestRotateMatrix {
 
     @Test
     void testTranspose() {
-        int [][] transposed = transpose(matrix2x2);
+        int[][] transposed = transpose(matrix2x2);
         assertEquals(1, transposed[0][0]);
         assertEquals(3, transposed[0][1]);
         assertEquals(2, transposed[1][0]);

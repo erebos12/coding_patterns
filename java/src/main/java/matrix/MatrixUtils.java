@@ -2,6 +2,12 @@ package matrix;
 
 public class MatrixUtils {
 
+    public static int[][] rotateMatrix(final int[][] matrix) {
+        // 1. Transpose matrix
+        // 2. Swap per row elements which are to the opposite (2 pointer pattern)
+        return matrix;
+    }
+
     public static void print(final int[][] matrix) {
         for (int row = 0; row < matrix.length; row++) {
             for (int col = 0; col < matrix[row].length; col++) {
@@ -22,5 +28,8 @@ public class MatrixUtils {
         return transposed;
     }
 
+    public static int[][] swap(final int[][] matrix) {
+        return null;
+    }
 
 }
