@@ -19,6 +19,9 @@ public class MatrixUtils {
         }
     }
 
+    /*
+    TODO: Currently only squared matrices are supported.
+     */
     public static int[][] transpose(final int[][] matrix) {
         final int[][] transposed = new int[matrix.length][matrix.length];
         for (int row = 0; row < matrix.length; row++) {

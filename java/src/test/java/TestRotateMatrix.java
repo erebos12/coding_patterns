@@ -109,51 +109,30 @@ public class TestRotateMatrix {
     }
 
     @Test
-    void testTranspose() {
-        /*
-         TODO: create generic transpose test
-         1. create randomized a matrix
-         2. create a generic assert-method that checks if transpose worked correctly
-            - transposed matrix must have: orig[row][col] == transposed[col][row]
-         */
+    void testTransposeSquaredMatrix() {
+        int[][] matrix = randomMatrix(2, 2);
+        int[][] transposed = transpose(matrix);
+        checkTransposedMatrix(matrix, transposed);
 
-        int[][] transposed = transpose(matrix2x2);
-        assertEquals(1, transposed[0][0]);
-        assertEquals(3, transposed[0][1]);
-        assertEquals(2, transposed[1][0]);
-        assertEquals(4, transposed[1][1]);
+        matrix = randomMatrix(3, 3);
+        transposed = transpose(matrix);
+        checkTransposedMatrix(matrix, transposed);
 
-        transposed = transpose(matrix3x3);
-        assertEquals(1, transposed[0][0]);
-        assertEquals(4, transposed[0][1]);
-        assertEquals(7, transposed[0][2]);
-        assertEquals(2, transposed[1][0]);
-        assertEquals(5, transposed[1][1]);
-        assertEquals(8, transposed[1][2]);
-        assertEquals(3, transposed[2][0]);
-        assertEquals(6, transposed[2][1]);
-        assertEquals(9, transposed[2][2]);
+        matrix = randomMatrix(4, 4);
+        transposed = transpose(matrix);
+        checkTransposedMatrix(matrix, transposed);
 
-        transposed = transpose(matrix4x4);
-        assertEquals(1, transposed[0][0]);
-        assertEquals(5, transposed[0][1]);
-        assertEquals(9, transposed[0][2]);
-        assertEquals(13, transposed[0][3]);
+        matrix = randomMatrix(20, 20);
+        transposed = transpose(matrix);
+        checkTransposedMatrix(matrix, transposed);
+    }
 
-        assertEquals(2, transposed[1][0]);
-        assertEquals(6, transposed[1][1]);
-        assertEquals(10, transposed[1][2]);
-        assertEquals(14, transposed[1][3]);
-
-        assertEquals(3, transposed[2][0]);
-        assertEquals(7, transposed[2][1]);
-        assertEquals(11, transposed[2][2]);
-        assertEquals(15, transposed[2][3]);
-
-        assertEquals(4, transposed[3][0]);
-        assertEquals(8, transposed[3][1]);
-        assertEquals(12, transposed[3][2]);
-        assertEquals(16, transposed[3][3]);
+    void checkTransposedMatrix(int[][] matrix, int[][] transposed) {
+        for (int row = 0; row < matrix.length; row++) {
+            for (int col = 0; col < matrix[row].length; col++) {
+                assertEquals(matrix[row][col], transposed[col][row]);
+            }
+        }
     }
 
     @Test
