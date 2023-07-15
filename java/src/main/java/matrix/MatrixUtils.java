@@ -1,5 +1,7 @@
 package matrix;
 
+import java.util.Random;
+
 public class MatrixUtils {
 
     public static int[][] rotateMatrix(final int[][] matrix) {
@@ -32,4 +34,15 @@ public class MatrixUtils {
         return null;
     }
 
+    public static int[][] randomMatrix(final int numOfRows, final int numOfColumns) {
+        int[][] matrix = new int[numOfRows][numOfColumns];
+        int upperbound = 100;
+        Random rand = new Random();
+        for (int row = 0; row < numOfRows; row++) {
+            for (int col = 0; col < numOfColumns; col++) {
+                matrix[row][col] = rand.nextInt(upperbound);
+            }
+        }
+        return matrix;
+    }
 }

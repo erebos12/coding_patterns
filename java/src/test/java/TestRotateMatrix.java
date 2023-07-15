@@ -155,4 +155,13 @@ public class TestRotateMatrix {
         assertEquals(12, transposed[3][2]);
         assertEquals(16, transposed[3][3]);
     }
+
+    @Test
+    void testRandomMatrix() {
+        int[][] m = randomMatrix(3, 3);
+        assertEquals(m.length, 3);
+        print(m);
+        m = randomMatrix(2, 2);
+        assertEquals(m.length, 2);
+    }
 }
