@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -125,6 +126,21 @@ public class TestRotateMatrix {
         matrix = randomMatrix(20, 20);
         transposed = transpose(matrix);
         checkTransposedMatrix(matrix, transposed);
+    }
+
+    @Test
+    void testTransposeExceptions() {
+        Assertions.assertThrows(AssertionError.class,
+                () -> randomMatrix(1, 2), "AssertionError was expected");
+
+        Assertions.assertThrows(AssertionError.class,
+                () -> randomMatrix(0, 1), "AssertionError was expected");
+
+        Assertions.assertThrows(AssertionError.class,
+                () -> randomMatrix(1, 0), "AssertionError was expected");
+
+        Assertions.assertThrows(AssertionError.class,
+                () -> randomMatrix(0, 0), "AssertionError was expected");
     }
 
     void checkTransposedMatrix(int[][] matrix, int[][] transposed) {

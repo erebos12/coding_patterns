@@ -38,6 +38,8 @@ public class MatrixUtils {
     }
 
     public static int[][] randomMatrix(final int numOfRows, final int numOfColumns) {
+        assert numOfColumns > 0 && numOfRows > 0;
+        assert numOfColumns == numOfRows;
         int[][] matrix = new int[numOfRows][numOfColumns];
         int upperbound = 100;
         Random rand = new Random();
