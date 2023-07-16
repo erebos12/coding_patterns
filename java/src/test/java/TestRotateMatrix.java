@@ -159,4 +159,35 @@ public class TestRotateMatrix {
         m = randomMatrix(2, 2);
         assertEquals(m.length, 2);
     }
+
+    @Test
+    void testSwap2x2() {
+        int[][] m = randomMatrix(2, 2);
+        int[][] swapped = swap(m);
+        assertEquals(m[0][0], swapped[0][1]);
+        assertEquals(m[1][0], swapped[1][1]);
+    }
+
+    @Test
+    void testSwap3x3() {
+        int[][] m = randomMatrix(3, 3);
+        int[][] swapped = swap(m);
+        assertEquals(m[0][0], swapped[0][2]);
+        assertEquals(m[0][1], swapped[0][1]);
+        assertEquals(m[1][0], swapped[1][2]);
+        assertEquals(m[1][1], swapped[1][1]);
+        assertEquals(m[2][0], swapped[2][2]);
+    }
+
+    @Test
+    void testSwap4x4() {
+        int[][] m = randomMatrix(4, 4);
+        int[][] swapped = swap(m);
+        assertEquals(m[0][0], swapped[0][3]);
+        assertEquals(m[0][1], swapped[0][2]);
+        assertEquals(m[1][0], swapped[1][3]);
+        assertEquals(m[1][1], swapped[1][2]);
+        assertEquals(m[2][0], swapped[2][3]);
+        assertEquals(m[2][1], swapped[2][2]);
+    }
 }

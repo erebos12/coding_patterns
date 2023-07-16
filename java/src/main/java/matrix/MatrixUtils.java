@@ -34,7 +34,19 @@ public class MatrixUtils {
     }
 
     public static int[][] swap(final int[][] matrix) {
-        return null;
+        int[][] swapped = new int[matrix.length][matrix.length];
+        for (int row = 0; row < matrix.length; row++) {
+            int left = 0;
+            int right = matrix.length - 1;
+            while (left <= right) {
+                int a = matrix[row][left];
+                swapped[row][left] = matrix[row][right];
+                swapped[row][right] = a;
+                left++;
+                right--;
+            }
+        }
+        return swapped;
     }
 
     public static int[][] randomMatrix(final int numOfRows, final int numOfColumns) {
