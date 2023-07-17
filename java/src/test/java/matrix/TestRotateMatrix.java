@@ -1,3 +1,5 @@
+package matrix;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -54,7 +56,6 @@ public class TestRotateMatrix {
     @Test
     void testRotateMatrix2x2() {
         var rotated = rotateMatrix(matrix2x2);
-        print(matrix2x2);
         assertEquals(3, rotated[0][0]);
         assertEquals(1, rotated[0][1]);
         assertEquals(4, rotated[1][0]);
@@ -64,7 +65,6 @@ public class TestRotateMatrix {
     @Test
     void testRotateMatrix3x3() {
         var rotated = rotateMatrix(matrix3x3);
-        print(matrix3x3);
         assertEquals(7, rotated[0][0]);
         assertEquals(4, rotated[0][1]);
         assertEquals(1, rotated[0][2]);
@@ -80,7 +80,6 @@ public class TestRotateMatrix {
     void testRotateMatrix4x4() {
 
         var rotated = rotateMatrix(matrix4x4);
-        print(matrix4x4);
         assertEquals(13, rotated[0][0]);
         assertEquals(9, rotated[0][1]);
         assertEquals(5, rotated[0][2]);
@@ -103,9 +102,7 @@ public class TestRotateMatrix {
     @Test
     void testPrintMatrix() {
         print(matrix2x2);
-        System.out.println("========");
         print(matrix3x3);
-        System.out.println("========");
         print(matrix4x4);
     }
 
