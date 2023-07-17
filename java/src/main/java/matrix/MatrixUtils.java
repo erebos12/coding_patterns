@@ -5,9 +5,7 @@ import java.util.Random;
 public class MatrixUtils {
 
     public static int[][] rotateMatrix(final int[][] matrix) {
-        // 1. Transpose matrix
-        // 2. Swap per row elements which are to the opposite (2 pointer pattern)
-        return matrix;
+        return swap(transpose(matrix));
     }
 
     public static void print(final int[][] matrix) {

@@ -51,17 +51,17 @@ public class TestRotateMatrix {
     }
 
 
-    //@Test
+    @Test
     void testRotateMatrix2x2() {
         var rotated = rotateMatrix(matrix2x2);
         print(matrix2x2);
         assertEquals(3, rotated[0][0]);
         assertEquals(1, rotated[0][1]);
         assertEquals(4, rotated[1][0]);
-        assertEquals(2, rotated[1][2]);
+        assertEquals(2, rotated[1][1]);
     }
 
-    //@Test
+    @Test
     void testRotateMatrix3x3() {
         var rotated = rotateMatrix(matrix3x3);
         print(matrix3x3);
@@ -76,7 +76,7 @@ public class TestRotateMatrix {
         assertEquals(3, rotated[2][2]);
     }
 
-    //@Test
+    @Test
     void testRotateMatrix4x4() {
 
         var rotated = rotateMatrix(matrix4x4);
