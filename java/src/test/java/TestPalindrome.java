@@ -16,5 +16,6 @@ public class TestPalindrome {
         assertTrue(isPalindrome("mmmmmmm"));
         assertTrue(isPalindrome("iiiiiiiiiiiiiiii"));
         assertTrue(isPalindrome("iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii"));
+        assertFalse(isPalindrome("hgj"));
     }
 }
