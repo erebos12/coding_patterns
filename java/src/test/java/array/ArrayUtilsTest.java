@@ -3,7 +3,9 @@ package array;
 import org.junit.jupiter.api.Test;
 
 import static arrays.ArrayUtils.findNLargestElements;
+import static arrays.ArrayUtils.findSecondLargestElement;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ArrayUtilsTest {
 
@@ -77,5 +79,14 @@ public class ArrayUtilsTest {
         arr = new int[]{1, 3, 4, 5, 6, 7};
         expected = new Integer[]{6, 7};
         assertArrayEquals(expected, findNLargestElements(arr, num));
+    }
+
+    @Test
+    void testFindSecondLargestElement() {
+        assertEquals(9, findSecondLargestElement(new int[]{10, 10, 9}));
+        assertEquals(5, findSecondLargestElement(new int[]{1, 2, 3, 5, 9}));
+        assertEquals(6, findSecondLargestElement(new int[]{10, 1, 6}));
+        assertEquals(10, findSecondLargestElement(new int[]{10}));
+        assertEquals(-1, findSecondLargestElement(new int[]{}));
     }
 }

@@ -21,4 +21,22 @@ public class ArrayUtils {
         }
         return result.toArray(Integer[]::new);
     }
+
+    public static int findSecondLargestElement(final int[] array) {
+        if (array.length == 0) {
+            return -1;
+        }
+        if (array.length == 1) {
+            return array[0];
+        }
+        Set<Integer> temp = new HashSet<>();
+        /*
+         Arrays.sort: It uses Tuned Quicksort with avg. case Time complexity = O(n*log(n))
+         */
+        Arrays.sort(array);
+        for (int j : array) {
+            temp.add(j);
+        }
+        return (int) temp.toArray()[temp.size() - 2];
+    }
 }
