@@ -39,4 +39,21 @@ public class ArrayUtils {
         }
         return (int) temp.toArray()[temp.size() - 2];
     }
+
+    public static int[] moveZeros(final int[] array) {
+        int j = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] != 0) {
+                swap(array, j, i);
+                j++;
+            }
+        }
+        return array;
+    }
+
+    public static void swap(int[] array, int a, int b) {
+        int temp = array[a];
+        array[a] = array[b];
+        array[b] = temp;
+    }
 }

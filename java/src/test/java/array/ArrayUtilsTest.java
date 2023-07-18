@@ -2,8 +2,7 @@ package array;
 
 import org.junit.jupiter.api.Test;
 
-import static arrays.ArrayUtils.findNLargestElements;
-import static arrays.ArrayUtils.findSecondLargestElement;
+import static arrays.ArrayUtils.*;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -88,5 +87,14 @@ public class ArrayUtilsTest {
         assertEquals(6, findSecondLargestElement(new int[]{10, 1, 6}));
         assertEquals(10, findSecondLargestElement(new int[]{10}));
         assertEquals(-1, findSecondLargestElement(new int[]{}));
+    }
+
+    @Test
+    void testMoveZero() {
+        assertArrayEquals(new int[]{9, 10, 0}, moveZeros(new int[]{0, 9, 10}));
+        assertArrayEquals(new int[]{9, 0, 0}, moveZeros(new int[]{0, 0, 9}));
+        assertArrayEquals(new int[]{1, 9, 0, 0}, moveZeros(new int[]{0, 0, 1, 9}));
+        assertArrayEquals(new int[]{1, 2, 4, 3, 5, 0, 0, 0}, moveZeros(new int[]{1, 2, 0, 4, 3, 0, 5, 0}));
+        assertArrayEquals(new int[]{1, 2, 3, 6, 0, 0, 0}, moveZeros(new int[]{1, 2, 0, 0, 0, 3, 6}));
     }
 }
