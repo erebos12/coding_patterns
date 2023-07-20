@@ -60,4 +60,19 @@ public class ArrayUtils {
         array[a] = array[b];
         array[b] = temp;
     }
+
+    // immutable solution where origin array remains as it is
+    public static int[] rearrangeMaxAndMin(final int[] array) {
+        int[] result = new int[array.length];
+        int left = 0;
+        int right = array.length - 1;
+        for (int i = 0; i < array.length; i++) {
+            if (i % 2 == 0) {
+                result[i] = array[right--];
+            } else {
+                result[i] = array[left++];
+            }
+        }
+        return result;
+    }
 }

@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static arrays.ArrayUtils.*;
-import static matrix.MatrixUtils.randomMatrix;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -123,5 +122,17 @@ public class ArrayUtilsTest {
 
         Assertions.assertThrows(AssertionError.class,
                 () -> swap(new int[]{10}, 0, -1), "AssertionError was expected");
+    }
+
+    @Test
+    void testRearrangeMaxAndMin() {
+        int[] expected = new int[]{7, 1, 6, 2, 5, 3, 4};
+        assertArrayEquals(expected, rearrangeMaxAndMin(new int[]{1, 2, 3, 4, 5, 6, 7}));
+
+        expected = new int[]{6, 1, 5, 2, 4, 3};
+        assertArrayEquals(expected, rearrangeMaxAndMin(new int[]{1, 2, 3, 4, 5, 6}));
+
+        expected = new int[]{6, 7};
+        assertArrayEquals(expected, rearrangeMaxAndMin(new int[]{7, 6}));
     }
 }
