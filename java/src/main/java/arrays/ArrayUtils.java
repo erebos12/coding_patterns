@@ -52,6 +52,10 @@ public class ArrayUtils {
     }
 
     public static void swap(int[] array, int a, int b) {
+        if (array.length == 0) {
+            return;
+        }
+        assert a >= 0 && b >= 0;
         int temp = array[a];
         array[a] = array[b];
         array[b] = temp;

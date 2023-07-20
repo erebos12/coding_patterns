@@ -1,8 +1,10 @@
 package array;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static arrays.ArrayUtils.*;
+import static matrix.MatrixUtils.randomMatrix;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -96,5 +98,30 @@ public class ArrayUtilsTest {
         assertArrayEquals(new int[]{1, 9, 0, 0}, moveZeros(new int[]{0, 0, 1, 9}));
         assertArrayEquals(new int[]{1, 2, 4, 3, 5, 0, 0, 0}, moveZeros(new int[]{1, 2, 0, 4, 3, 0, 5, 0}));
         assertArrayEquals(new int[]{1, 2, 3, 6, 0, 0, 0}, moveZeros(new int[]{1, 2, 0, 0, 0, 3, 6}));
+    }
+
+    @Test
+    void testSwap() {
+        int[] array = new int[]{0, 9, 10};
+        swap(array, 0, 1);
+        assertArrayEquals(new int[]{9, 0, 10}, array);
+
+        array = new int[]{0, 9, 10};
+        swap(array, 0, 2);
+        assertArrayEquals(new int[]{10, 9, 0}, array);
+
+        array = new int[]{};
+        swap(array, 0, 2);
+        assertArrayEquals(new int[]{}, array);
+
+        array = new int[]{0, 9, 10};
+        swap(array, 0, 0);
+        assertArrayEquals(new int[]{0, 9, 10}, array);
+
+        Assertions.assertThrows(AssertionError.class,
+                () -> swap(new int[]{10}, -1, 0), "AssertionError was expected");
+
+        Assertions.assertThrows(AssertionError.class,
+                () -> swap(new int[]{10}, 0, -1), "AssertionError was expected");
     }
 }
