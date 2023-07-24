@@ -1,9 +1,11 @@
 package array;
 
+import arrays.SignumResult;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static arrays.ArrayUtils.*;
+import static arrays.SignumPermutation.signumOfPermutation;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -135,4 +137,6 @@ public class ArrayUtilsTest {
         expected = new int[]{6, 7};
         assertArrayEquals(expected, rearrangeMaxAndMin(new int[]{7, 6}));
     }
+
+
 }
