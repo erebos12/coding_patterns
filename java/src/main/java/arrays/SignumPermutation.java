@@ -29,4 +29,12 @@ public class SignumPermutation {
         }
         return inverted;
     }
+
+    public static int[] composePermutation(int[] a, int[] b) {
+        int[] result = new int[a.length];
+        for (int i = 0; i < b.length; i++) {
+            result[i] = a[b[i] - 1];
+        }
+        return result;
+    }
 }
