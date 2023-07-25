@@ -1,7 +1,6 @@
 package array;
 
 import arrays.SignumResult;
-import matrix.MatrixUtils;
 import org.junit.jupiter.api.Test;
 
 import static arrays.Permutation.*;
