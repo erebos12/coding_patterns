@@ -54,6 +54,9 @@ public class Permutation {
         return result;
     }
 
+    /*
+       see https://de.wikipedia.org/wiki/Permutationsmatrix
+     */
     public static int[][] createPermutationMatrix(int[] a) {
         int[][] permMatrix = createZeroMatrix(a.length, a.length);
         int row = 0;
