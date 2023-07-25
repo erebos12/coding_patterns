@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import static matrix.MatrixUtils.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class TestRotateMatrix {
+public class TestMatrixUtils {
 
 
     public static int[][] matrix2x2;
@@ -127,17 +127,13 @@ public class TestRotateMatrix {
 
     @Test
     void testTransposeExceptions() {
-        Assertions.assertThrows(AssertionError.class,
-                () -> randomMatrix(1, 2), "AssertionError was expected");
+        Assertions.assertThrows(AssertionError.class, () -> randomMatrix(1, 2), "AssertionError was expected");
 
-        Assertions.assertThrows(AssertionError.class,
-                () -> randomMatrix(0, 1), "AssertionError was expected");
+        Assertions.assertThrows(AssertionError.class, () -> randomMatrix(0, 1), "AssertionError was expected");
 
-        Assertions.assertThrows(AssertionError.class,
-                () -> randomMatrix(1, 0), "AssertionError was expected");
+        Assertions.assertThrows(AssertionError.class, () -> randomMatrix(1, 0), "AssertionError was expected");
 
-        Assertions.assertThrows(AssertionError.class,
-                () -> randomMatrix(0, 0), "AssertionError was expected");
+        Assertions.assertThrows(AssertionError.class, () -> randomMatrix(0, 0), "AssertionError was expected");
     }
 
     void checkTransposedMatrix(int[][] matrix, int[][] transposed) {
@@ -186,5 +182,23 @@ public class TestRotateMatrix {
         assertEquals(m[1][1], swapped[1][2]);
         assertEquals(m[2][0], swapped[2][3]);
         assertEquals(m[2][1], swapped[2][2]);
+    }
+
+    @Test
+    void testCreateZeroMatrix() {
+        int[][] matrix = createZeroMatrix(3, 3);
+        checkAllZerosInMatrix(matrix);
+        matrix = createZeroMatrix(2, 2);
+        checkAllZerosInMatrix(matrix);
+        matrix = createZeroMatrix(4, 4);
+        checkAllZerosInMatrix(matrix);
+    }
+
+    void checkAllZerosInMatrix(int[][] matrix) {
+        for (int[] ints : matrix) {
+            for (int anInt : ints) {
+                assertEquals(0, anInt);
+            }
+        }
     }
 }

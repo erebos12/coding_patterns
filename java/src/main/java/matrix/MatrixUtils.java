@@ -60,4 +60,16 @@ public class MatrixUtils {
         }
         return matrix;
     }
+
+    public static int[][] createZeroMatrix(final int numOfRows, final int numOfColumns) {
+        assert numOfColumns > 0 && numOfRows > 0;
+        assert numOfColumns == numOfRows;
+        int[][] matrix = new int[numOfRows][numOfColumns];
+        for (int row = 0; row < numOfRows; row++) {
+            for (int col = 0; col < numOfColumns; col++) {
+                matrix[row][col] = 0;
+            }
+        }
+        return matrix;
+    }
 }
