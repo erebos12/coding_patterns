@@ -75,22 +75,22 @@ public class PermutationTest {
     void testComposePermutation() {
         int[] a = new int[]{3, 4, 2, 1};
         int[] b = new int[]{3, 1, 4, 2};
-        int[] res = composePermutation(a, b);
+        int[] res = composePermutations(a, b);
         assertArrayEquals(new int[]{2, 3, 1, 4}, res);
 
         a = new int[]{3, 4, 2, 1};
         b = new int[]{3, 1, 4, 2};
-        res = composePermutation(b, a);
+        res = composePermutations(b, a);
         assertArrayEquals(new int[]{4, 2, 1, 3}, res);
 
         a = new int[]{3, 1, 4, 5, 2};
         b = new int[]{3, 4, 1, 2, 5};
-        res = composePermutation(a, b);
+        res = composePermutations(a, b);
         assertArrayEquals(new int[]{4, 5, 3, 1, 2}, res);
 
         a = new int[]{3, 1, 4, 5, 2};
         b = new int[]{3, 4, 1, 2, 5};
-        res = composePermutation(b, a);
+        res = composePermutations(b, a);
         assertArrayEquals(new int[]{1, 3, 2, 5, 4}, res);
 
     }

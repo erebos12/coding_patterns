@@ -42,11 +42,11 @@ public class Permutation {
     }
 
     /*
-       Composing 2 permutation: a o b = a(b(i))
+       Composing 2 permutations: a o b = a(b(i))
          - b(i) gives value at i and this value, say x, is put into a(x) gives value at x
          - x is put into result
      */
-    public static int[] composePermutation(int[] a, int[] b) {
+    public static int[] composePermutations(int[] a, int[] b) {
         int[] result = new int[a.length];
         for (int i = 0; i < b.length; i++) {
             result[i] = a[b[i] - 1];
