@@ -62,7 +62,7 @@ public class PermutationTest {
         assertArrayEquals(new int[]{1, 2, 3}, res);
 
         res = invertPermutation(new int[]{2, 1});
-        assertArrayEquals(new int[]{1, 2}, res);
+        assertArrayEquals(new int[]{2, 1}, res);
 
         res = invertPermutation(new int[]{1, 2});
         assertArrayEquals(new int[]{1, 2}, res);
