@@ -56,10 +56,10 @@ public class Permutation {
 
     public static int[][] createPermutationMatrix(int[] a) {
         int[][] permMatrix = createZeroMatrix(a.length, a.length);
-        int j = 0;
-        for (int i : a) {
-            permMatrix[j][i - 1] = 1;
-            j++;
+        int row = 0;
+        for (int col : a) {
+            permMatrix[row][col - 1] = 1;
+            row++;
         }
         return permMatrix;
     }
