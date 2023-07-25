@@ -1,6 +1,15 @@
 package arrays;
 
 public class Permutation {
+    /*
+      Signum or Signature of a permutation 'p':
+
+        sgn(p) = 1 if number of pairs (i,j) with i>j and p(i)<p(j) is EVEN
+                   ELSE
+                -1 if ODD
+
+       see https://de.wikipedia.org/wiki/Vorzeichen_(Permutation)
+     */
 
     public static SignumResult signumOfPermutation(int[] array) {
         int errorCount = 0;
@@ -30,6 +39,11 @@ public class Permutation {
         return inverted;
     }
 
+    /*
+       Composing 2 permutation: a o b = a(b(i))
+         - b(i) gives value at i and this value, say x, is put into a(x) gives value at x
+         - x is put into result
+     */
     public static int[] composePermutation(int[] a, int[] b) {
         int[] result = new int[a.length];
         for (int i = 0; i < b.length; i++) {
