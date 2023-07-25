@@ -1,6 +1,7 @@
 package array;
 
 import arrays.SignumResult;
+import matrix.MatrixUtils;
 import org.junit.jupiter.api.Test;
 
 import static arrays.Permutation.*;
@@ -93,5 +94,51 @@ public class PermutationTest {
         res = composePermutation(b, a);
         assertArrayEquals(new int[]{1, 3, 2, 5, 4}, res);
 
+    }
+
+    @Test
+    void testCreatePermutationMatrix01() {
+        int[][] permutationMatrix = createPermutationMatrix(new int[]{3, 5, 8, 1, 7, 4, 2, 6});
+        for (int row = 0; row < permutationMatrix.length; row++) {
+            for (int col = 0; col < permutationMatrix.length; col++) {
+                if (row == 0 && col == 2) {
+                    assertEquals(1, permutationMatrix[row][col]);
+                } else if (row == 1 && col == 4) {
+                    assertEquals(1, permutationMatrix[row][col]);
+                } else if (row == 2 && col == 7) {
+                    assertEquals(1, permutationMatrix[row][col]);
+                } else if (row == 3 && col == 0) {
+                    assertEquals(1, permutationMatrix[row][col]);
+                } else if (row == 4 && col == 6) {
+                    assertEquals(1, permutationMatrix[row][col]);
+                } else if (row == 5 && col == 3) {
+                    assertEquals(1, permutationMatrix[row][col]);
+                } else if (row == 6 && col == 1) {
+                    assertEquals(1, permutationMatrix[row][col]);
+                } else if (row == 7 && col == 5) {
+                    assertEquals(1, permutationMatrix[row][col]);
+                } else {
+                    assertEquals(0, permutationMatrix[row][col]);
+                }
+            }
+        }
+    }
+
+    @Test
+    void testCreatePermutationMatrix02() {
+        int[][] permutationMatrix = createPermutationMatrix(new int[]{2, 3, 1});
+        for (int row = 0; row < permutationMatrix.length; row++) {
+            for (int col = 0; col < permutationMatrix.length; col++) {
+                if (row == 0 && col == 1) {
+                    assertEquals(1, permutationMatrix[row][col]);
+                } else if (row == 1 && col == 2) {
+                    assertEquals(1, permutationMatrix[row][col]);
+                } else if (row == 2 && col == 0) {
+                    assertEquals(1, permutationMatrix[row][col]);
+                } else {
+                    assertEquals(0, permutationMatrix[row][col]);
+                }
+            }
+        }
     }
 }

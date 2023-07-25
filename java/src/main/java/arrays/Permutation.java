@@ -1,5 +1,7 @@
 package arrays;
 
+import static matrix.MatrixUtils.createZeroMatrix;
+
 public class Permutation {
     /*
       Signum or Signature of a permutation 'p':
@@ -50,5 +52,15 @@ public class Permutation {
             result[i] = a[b[i] - 1];
         }
         return result;
+    }
+
+    public static int[][] createPermutationMatrix(int[] a) {
+        int[][] permMatrix = createZeroMatrix(a.length, a.length);
+        int j = 0;
+        for (int i : a) {
+            permMatrix[j][i - 1] = 1;
+            j++;
+        }
+        return permMatrix;
     }
 }
