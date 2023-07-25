@@ -3,11 +3,11 @@ package array;
 import arrays.SignumResult;
 import org.junit.jupiter.api.Test;
 
-import static arrays.SignumPermutation.*;
+import static arrays.Permutation.*;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class SignumPermutationTest {
+public class PermutationTest {
 
     @Test
     void testSignumOfPermutation() {

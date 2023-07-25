@@ -1,6 +1,6 @@
 package arrays;
 
-public class SignumPermutation {
+public class Permutation {
 
     public static SignumResult signumOfPermutation(int[] array) {
         int errorCount = 0;
