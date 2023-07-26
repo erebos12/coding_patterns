@@ -8,15 +8,6 @@ public class MatrixUtils {
         return swap(transpose(matrix));
     }
 
-    public static void print(final int[][] matrix) {
-        for (int row = 0; row < matrix.length; row++) {
-            for (int col = 0; col < matrix[row].length; col++) {
-                String msg = "[%s][%s]=%s".formatted(row, col, matrix[row][col]);
-                System.out.println(msg);
-            }
-        }
-    }
-
     /*
     TODO: Currently only squared matrices are supported.
      */
@@ -73,7 +64,7 @@ public class MatrixUtils {
         return matrix;
     }
 
-    public static String prettyPrint(final int[][] matrix) {
+    public static String print(final int[][] matrix) {
         final StringBuilder s = new StringBuilder();
         for (int[] ints : matrix) {
             for (int anInt : ints) {

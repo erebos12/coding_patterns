@@ -200,13 +200,13 @@ public class TestMatrixUtils {
 
     @Test
     void testPrettyPrint() {
-        String s = prettyPrint(createZeroMatrix(3, 3));
+        String s = print(createZeroMatrix(3, 3));
         assertEquals("[0 0 0 , 0 0 0 , 0 0 0 ]", Arrays.toString(s.split("\n")));
         stdout(s);
-        s = prettyPrint(createPermutationMatrix(new int[]{2, 1, 3}));
+        s = print(createPermutationMatrix(new int[]{2, 1, 3}));
         assertEquals("[0 1 0 , 1 0 0 , 0 0 1 ]", Arrays.toString(s.split("\n")));
         stdout(s);
-        s = prettyPrint(createPermutationMatrix(new int[]{2, 1, 3, 4}));
+        s = print(createPermutationMatrix(new int[]{2, 1, 3, 4}));
         assertEquals("[0 1 0 0 , 1 0 0 0 , 0 0 1 0 , 0 0 0 1 ]", Arrays.toString(s.split("\n")));
         stdout(s);
     }
