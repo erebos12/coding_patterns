@@ -1,9 +1,11 @@
 package matrix;
 
+import arrays.Permutation;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import static arrays.Permutation.createPermutationMatrix;
 import static matrix.MatrixUtils.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -192,6 +194,15 @@ public class TestMatrixUtils {
         checkAllZerosInMatrix(matrix);
         matrix = createZeroMatrix(4, 4);
         checkAllZerosInMatrix(matrix);
+    }
+
+    @Test
+    void testPrettyPrint() {
+        prettyPrint(createZeroMatrix(3, 3));
+        prettyPrint(createPermutationMatrix(new int[]{2, 1, 3}));
+        prettyPrint(createPermutationMatrix(new int[]{2, 1, 3, 4}));
+        prettyPrint(createPermutationMatrix(new int[]{2, 1}));
+        prettyPrint(createPermutationMatrix(new int[]{3, 5, 8, 1, 7, 4, 2, 6}));
     }
 
     void checkAllZerosInMatrix(int[][] matrix) {

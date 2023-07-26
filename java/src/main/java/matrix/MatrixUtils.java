@@ -72,4 +72,15 @@ public class MatrixUtils {
         }
         return matrix;
     }
+
+    public static void prettyPrint(final int[][] matrix) {
+        final StringBuilder s = new StringBuilder();
+        for (int[] ints : matrix) {
+            for (int anInt : ints) {
+                s.append(anInt).append(" ");
+            }
+            s.append("\n");
+        }
+        System.out.println(s);
+    }
 }
