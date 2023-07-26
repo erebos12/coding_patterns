@@ -1,6 +1,7 @@
 package arrays;
 
 import static matrix.MatrixUtils.createZeroMatrix;
+import static matrix.MatrixUtils.transpose;
 
 /*
    What is a permutation ? See https://en.wikipedia.org/wiki/Permutation
@@ -47,8 +48,16 @@ public class Permutation {
         return inverted;
     }
 
+    /*
+       The inverted permutation matrix (P^-1) is equal to the transposed permutation matrix (P^T):
+       P^-1 = P^T -> See https://en.wikipedia.org/wiki/Permutation_matrix
+       So for creating the inverted permutation we use the permutation matrix,
+       transpose it and convert it back to a permutation.
+     */
     public static int[] invertByPermutationMatrix(int[] array) {
-        return new int[array.length];
+        int[][] permMatrix = createPermutationMatrix(array);
+        int[][] transposed = transpose(permMatrix);
+        return permutationMatrixToPermutation(transposed);
     }
 
     /*
