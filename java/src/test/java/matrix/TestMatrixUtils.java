@@ -105,9 +105,9 @@ public class TestMatrixUtils {
 
     @Test
     void testPrintMatrix() {
-        print(matrix2x2);
-        print(matrix3x3);
-        print(matrix4x4);
+        MatrixUtils.toString(matrix2x2);
+        MatrixUtils.toString(matrix3x3);
+        MatrixUtils.toString(matrix4x4);
     }
 
     @Test
@@ -152,7 +152,7 @@ public class TestMatrixUtils {
     void testRandomMatrix() {
         int[][] m = randomMatrix(3, 3);
         assertEquals(m.length, 3);
-        print(m);
+        MatrixUtils.toString(m);
         m = randomMatrix(2, 2);
         assertEquals(m.length, 2);
     }
@@ -200,13 +200,13 @@ public class TestMatrixUtils {
 
     @Test
     void testPrettyPrint() {
-        String s = print(createZeroMatrix(3, 3));
+        String s = MatrixUtils.toString(createZeroMatrix(3, 3));
         assertEquals("[0 0 0 , 0 0 0 , 0 0 0 ]", Arrays.toString(s.split("\n")));
         stdout(s);
-        s = print(createPermutationMatrix(new int[]{2, 1, 3}));
+        s = MatrixUtils.toString(createPermutationMatrix(new int[]{2, 1, 3}));
         assertEquals("[0 1 0 , 1 0 0 , 0 0 1 ]", Arrays.toString(s.split("\n")));
         stdout(s);
-        s = print(createPermutationMatrix(new int[]{2, 1, 3, 4}));
+        s = MatrixUtils.toString(createPermutationMatrix(new int[]{2, 1, 3, 4}));
         assertEquals("[0 1 0 0 , 1 0 0 0 , 0 0 1 0 , 0 0 0 1 ]", Arrays.toString(s.split("\n")));
         stdout(s);
     }

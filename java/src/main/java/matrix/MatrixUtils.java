@@ -64,7 +64,7 @@ public class MatrixUtils {
         return matrix;
     }
 
-    public static String print(final int[][] matrix) {
+    public static String toString(final int[][] matrix) {
         final StringBuilder s = new StringBuilder();
         for (int[] ints : matrix) {
             for (int anInt : ints) {
