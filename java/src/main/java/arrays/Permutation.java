@@ -1,7 +1,12 @@
 package arrays;
 
 import static matrix.MatrixUtils.createZeroMatrix;
-
+/*
+   What is a permutation ? See https://en.wikipedia.org/wiki/Permutation
+   - here 2-line-representation by a java array is used
+   - 1st line: index of array elements
+   - 2nd line: value of index 
+ */
 public class Permutation {
     /*
       Signum or Signature of a permutation 'p':
