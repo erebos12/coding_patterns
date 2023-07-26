@@ -190,6 +190,8 @@ public class PermutationTest {
 
     @Test
     void testIdAsNeutralElement() {
+        // Neutrales Element einer Gruppe: a o e = e o a = a
+        // Permutation ist eine (symmetrische) Gruppe.
         int[] permutation = new int[]{3, 2, 1};
         int[] id = createIdentityPermutation(3);
         int[] composed = composePermutations(permutation, id);
