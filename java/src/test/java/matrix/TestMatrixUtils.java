@@ -1,13 +1,15 @@
 package matrix;
 
-import arrays.Permutation;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
 import static arrays.Permutation.createPermutationMatrix;
 import static matrix.MatrixUtils.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static strings.StringUtils.stdout;
 
 public class TestMatrixUtils {
 
@@ -198,11 +200,15 @@ public class TestMatrixUtils {
 
     @Test
     void testPrettyPrint() {
-        prettyPrint(createZeroMatrix(3, 3));
-        prettyPrint(createPermutationMatrix(new int[]{2, 1, 3}));
-        prettyPrint(createPermutationMatrix(new int[]{2, 1, 3, 4}));
-        prettyPrint(createPermutationMatrix(new int[]{2, 1}));
-        prettyPrint(createPermutationMatrix(new int[]{3, 5, 8, 1, 7, 4, 2, 6}));
+        String s = prettyPrint(createZeroMatrix(3, 3));
+        assertEquals("[0 0 0 , 0 0 0 , 0 0 0 ]", Arrays.toString(s.split("\n")));
+        stdout(s);
+        s = prettyPrint(createPermutationMatrix(new int[]{2, 1, 3}));
+        assertEquals("[0 1 0 , 1 0 0 , 0 0 1 ]", Arrays.toString(s.split("\n")));
+        stdout(s);
+        s = prettyPrint(createPermutationMatrix(new int[]{2, 1, 3, 4}));
+        assertEquals("[0 1 0 0 , 1 0 0 0 , 0 0 1 0 , 0 0 0 1 ]", Arrays.toString(s.split("\n")));
+        stdout(s);
     }
 
     void checkAllZerosInMatrix(int[][] matrix) {

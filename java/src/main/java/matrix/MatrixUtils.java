@@ -73,7 +73,7 @@ public class MatrixUtils {
         return matrix;
     }
 
-    public static void prettyPrint(final int[][] matrix) {
+    public static String prettyPrint(final int[][] matrix) {
         final StringBuilder s = new StringBuilder();
         for (int[] ints : matrix) {
             for (int anInt : ints) {
@@ -81,6 +81,6 @@ public class MatrixUtils {
             }
             s.append("\n");
         }
-        System.out.println(s);
+        return s.toString();
     }
 }
