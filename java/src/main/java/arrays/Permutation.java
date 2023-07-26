@@ -1,11 +1,12 @@
 package arrays;
 
 import static matrix.MatrixUtils.createZeroMatrix;
+
 /*
    What is a permutation ? See https://en.wikipedia.org/wiki/Permutation
-   - here 2-line-representation by a java array is used
+   - here Two-line notation is used by applying a java array
    - 1st line: index of array elements
-   - 2nd line: value of index 
+   - 2nd line: value of index
  */
 public class Permutation {
     /*
@@ -46,6 +47,10 @@ public class Permutation {
         return inverted;
     }
 
+    public static int[] invertByPermutationMatrix(int[] array) {
+        return new int[array.length];
+    }
+
     /*
        Composing 2 permutations: a o b = a(b(i))
          - b(i) gives value at i and this value, say x, is put into a(x) gives value at x, say y
@@ -70,5 +75,17 @@ public class Permutation {
             row++;
         }
         return permMatrix;
+    }
+
+    public static int[] permutationMatrixToPermutation(int[][] permMatrix) {
+        int[] permutation = new int[permMatrix.length];
+        for (int row = 0; row < permMatrix.length; row++) {
+            for (int col = 0; col < permMatrix[row].length; col++) {
+                if (permMatrix[row][col] == 1) {
+                    permutation[row] = col + 1;
+                }
+            }
+        }
+        return permutation;
     }
 }

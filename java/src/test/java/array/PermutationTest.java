@@ -140,4 +140,15 @@ public class PermutationTest {
             }
         }
     }
+
+    @Test
+    void testPermutationMatrixToPermutation() {
+        int[] originPermutation = new int[]{2, 3, 1};
+        int[][] permutationMatrix = createPermutationMatrix(originPermutation);
+        assertArrayEquals(originPermutation, permutationMatrixToPermutation(permutationMatrix));
+
+        originPermutation = new int[]{3, 5, 8, 1, 7, 4, 2, 6};
+        permutationMatrix = createPermutationMatrix(originPermutation);
+        assertArrayEquals(originPermutation, permutationMatrixToPermutation(permutationMatrix));
+    }
 }
