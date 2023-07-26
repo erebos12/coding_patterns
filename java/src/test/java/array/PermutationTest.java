@@ -169,6 +169,24 @@ public class PermutationTest {
     }
 
     @Test
+    void testCreatePermutationMatrix03() {
+        int[][] permutationMatrix = createPermutationMatrix(new int[]{1, 2, 3});
+        for (int row = 0; row < permutationMatrix.length; row++) {
+            for (int col = 0; col < permutationMatrix.length; col++) {
+                if (row == 0 && col == 0) {
+                    assertEquals(1, permutationMatrix[row][col]);
+                } else if (row == 1 && col == 1) {
+                    assertEquals(1, permutationMatrix[row][col]);
+                } else if (row == 2 && col == 2) {
+                    assertEquals(1, permutationMatrix[row][col]);
+                } else {
+                    assertEquals(0, permutationMatrix[row][col]);
+                }
+            }
+        }
+    }
+
+    @Test
     void testPermutationMatrixToPermutation() {
         int[] originPermutation = new int[]{2, 3, 1};
         int[][] permutationMatrix = createPermutationMatrix(originPermutation);
