@@ -97,4 +97,12 @@ public class Permutation {
         }
         return permutation;
     }
+
+    public static int[] createIdentityPermutation(int numberOfElements) {
+        int[] id = new int[numberOfElements];
+        for (int i = 0; i < numberOfElements; i++) {
+            id[i] = i + 1;
+        }
+        return id;
+    }
 }

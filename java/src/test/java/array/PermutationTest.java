@@ -178,4 +178,30 @@ public class PermutationTest {
         permutationMatrix = createPermutationMatrix(originPermutation);
         assertArrayEquals(originPermutation, permutationMatrixToPermutation(permutationMatrix));
     }
+
+    @Test
+    void testCreateIdentityPermutation() {
+        assertArrayEquals(new int[]{1, 2}, createIdentityPermutation(2));
+        assertArrayEquals(new int[]{1, 2, 3}, createIdentityPermutation(3));
+        assertArrayEquals(new int[]{1, 2, 3, 4}, createIdentityPermutation(4));
+        assertArrayEquals(new int[]{1, 2, 3, 4, 5}, createIdentityPermutation(5));
+        assertArrayEquals(new int[]{1, 2, 3, 4, 5, 6}, createIdentityPermutation(6));
+    }
+
+    @Test
+    void testIdAsNeutralElement() {
+        int[] permutation = new int[]{3, 2, 1};
+        int[] id = createIdentityPermutation(3);
+        int[] composed = composePermutations(permutation, id);
+        assertArrayEquals(permutation, composed);
+        composed = composePermutations(id, permutation);
+        assertArrayEquals(permutation, composed);
+
+        permutation = new int[]{3, 2, 1, 4};
+        id = createIdentityPermutation(4);
+        composed = composePermutations(permutation, id);
+        assertArrayEquals(permutation, composed);
+        composed = composePermutations(id, permutation);
+        assertArrayEquals(permutation, composed);
+    }
 }
