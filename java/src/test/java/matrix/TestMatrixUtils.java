@@ -228,33 +228,33 @@ public class TestMatrixUtils {
     }
 
     @Test
-    void testZeroRowsAndColumn01() {
+    void tesNullifyRowsAndCols01() {
         int[][] matrix = new int[2][2];
         matrix[0][0] = 1;
         matrix[0][1] = 0;
         matrix[1][0] = 3;
         matrix[1][1] = 4;
-        int[][] zeroed = zeroRowsAndCols(matrix);
-        assertEquals(0, zeroed[0][0]);
-        assertEquals(0, zeroed[0][1]);
-        assertEquals(3, zeroed[1][0]);
-        assertEquals(0, zeroed[1][1]);
+        int[][] nullified = nullifyRowsAndCols(matrix);
+        assertEquals(0, nullified[0][0]);
+        assertEquals(0, nullified[0][1]);
+        assertEquals(3, nullified[1][0]);
+        assertEquals(0, nullified[1][1]);
 
         matrix = new int[2][2];
         matrix[0][0] = 0;
         matrix[0][1] = 0;
         matrix[1][0] = 3;
         matrix[1][1] = 4;
-        zeroed = zeroRowsAndCols(matrix);
-        assertEquals(0, zeroed[0][0]);
-        assertEquals(0, zeroed[0][1]);
-        assertEquals(0, zeroed[1][0]);
-        assertEquals(0, zeroed[1][1]);
+        nullified = nullifyRowsAndCols(matrix);
+        assertEquals(0, nullified[0][0]);
+        assertEquals(0, nullified[0][1]);
+        assertEquals(0, nullified[1][0]);
+        assertEquals(0, nullified[1][1]);
     }
 
     @Test
-    void testZeroRowsAndColumn02() {
-        matrix = new int[3][3];
+    void tesNullifyRowsAndCols02() {
+        int[][] matrix = new int[3][3];
         matrix[0][0] = 1;
         matrix[0][1] = 2;
         matrix[0][2] = 3;
@@ -264,21 +264,21 @@ public class TestMatrixUtils {
         matrix[2][0] = 7;
         matrix[2][1] = 8;
         matrix[2][2] = 9;
-        int[][] zeroed = zeroRowsAndCols(matrix);
-        assertEquals(1, zeroed[0][0]);
-        assertEquals(2, zeroed[0][1]);
-        assertEquals(0, zeroed[0][2]);
-        assertEquals(0, zeroed[1][0]);
-        assertEquals(0, zeroed[1][1]);
-        assertEquals(0, zeroed[1][2]);
-        assertEquals(7, zeroed[2][0]);
-        assertEquals(8, zeroed[2][1]);
-        assertEquals(0, zeroed[2][2]);
+        int[][] nullified = nullifyRowsAndCols(matrix);
+        assertEquals(1, nullified[0][0]);
+        assertEquals(2, nullified[0][1]);
+        assertEquals(0, nullified[0][2]);
+        assertEquals(0, nullified[1][0]);
+        assertEquals(0, nullified[1][1]);
+        assertEquals(0, nullified[1][2]);
+        assertEquals(7, nullified[2][0]);
+        assertEquals(8, nullified[2][1]);
+        assertEquals(0, nullified[2][2]);
     }
 
     @Test
-    void testZeroRowsAndColumn03() {
-        matrix = new int[3][3];
+    void tesNullifyRowsAndCols03() {
+        int[][] matrix = new int[3][3];
         matrix[0][0] = 1;
         matrix[0][1] = 2;
         matrix[0][2] = 3;
@@ -288,15 +288,15 @@ public class TestMatrixUtils {
         matrix[2][0] = 7;
         matrix[2][1] = 8;
         matrix[2][2] = 0;
-        int[][] zeroed = zeroRowsAndCols(matrix);
-        assertEquals(1, zeroed[0][0]);
-        assertEquals(2, zeroed[0][1]);
-        assertEquals(0, zeroed[0][2]);
-        assertEquals(0, zeroed[1][0]);
-        assertEquals(0, zeroed[1][1]);
-        assertEquals(0, zeroed[1][2]);
-        assertEquals(0, zeroed[2][0]);
-        assertEquals(0, zeroed[2][1]);
-        assertEquals(0, zeroed[2][2]);
+        int[][] nullified = nullifyRowsAndCols(matrix);
+        assertEquals(1, nullified[0][0]);
+        assertEquals(2, nullified[0][1]);
+        assertEquals(0, nullified[0][2]);
+        assertEquals(0, nullified[1][0]);
+        assertEquals(0, nullified[1][1]);
+        assertEquals(0, nullified[1][2]);
+        assertEquals(0, nullified[2][0]);
+        assertEquals(0, nullified[2][1]);
+        assertEquals(0, nullified[2][2]);
     }
 }

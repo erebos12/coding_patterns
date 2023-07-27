@@ -75,7 +75,7 @@ public class MatrixUtils {
     }
 
 
-    public static int[][] zeroRowsAndCols(int[][] matrix) {
+    public static int[][] nullifyRowsAndCols(int[][] matrix) {
         boolean[] zeroRows = new boolean[matrix.length];
         boolean[] zeroCols = new boolean[matrix[0].length];
         for (int row = 0; row < matrix.length; row++) {
