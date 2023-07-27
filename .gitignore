@@ -1,6 +1,9 @@
 .idea
 .gradle
 java/build
+java/out
 gradle
 
 .dcignore
+
+java/out/test/classes/
