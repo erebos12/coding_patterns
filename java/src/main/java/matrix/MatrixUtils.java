@@ -73,4 +73,41 @@ public class MatrixUtils {
         }
         return s.toString();
     }
+
+
+    public static int[][] zeroRowsAndCols(int[][] matrix) {
+        boolean[] zeroRows = new boolean[matrix.length];
+        boolean[] zeroCols = new boolean[matrix[0].length];
+        for (int row = 0; row < matrix.length; row++) {
+            for (int col = 0; col < matrix[row].length; col++) {
+                if (matrix[row][col] == 0) {
+                    zeroRows[row] = true;
+                    zeroCols[col] = true;
+                }
+            }
+        }
+        for (int i = 0; i < zeroRows.length; i++) {
+            if (zeroRows[i]) {
+                nullifyRows(matrix, i);
+            }
+        }
+        for (int i = 0; i < zeroCols.length; i++) {
+            if (zeroCols[i]) {
+                nullifyCols(matrix, i);
+            }
+        }
+        return matrix;
+    }
+
+    public static void nullifyRows(int[][] matrix, int row) {
+        for (int col = 0; col < matrix[0].length; col++) {
+            matrix[row][col] = 0;
+        }
+    }
+
+    public static void nullifyCols(int[][] matrix, int col) {
+        for (int row = 0; row < matrix.length; row++) {
+            matrix[row][col] = 0;
+        }
+    }
 }

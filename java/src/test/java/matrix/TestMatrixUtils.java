@@ -14,17 +14,17 @@ import static strings.StringUtils.stdout;
 public class TestMatrixUtils {
 
 
-    public static int[][] matrix2x2;
+    public static int[][] matrix;
     public static int[][] matrix3x3;
     public static int[][] matrix4x4;
 
     @BeforeAll
     static void setup() {
-        matrix2x2 = new int[2][2];
-        matrix2x2[0][0] = 1;
-        matrix2x2[0][1] = 2;
-        matrix2x2[1][0] = 3;
-        matrix2x2[1][1] = 4;
+        matrix = new int[2][2];
+        matrix[0][0] = 1;
+        matrix[0][1] = 2;
+        matrix[1][0] = 3;
+        matrix[1][1] = 4;
 
         matrix3x3 = new int[3][3];
         matrix3x3[0][0] = 1;
@@ -59,7 +59,7 @@ public class TestMatrixUtils {
 
     @Test
     void testRotateMatrix2x2() {
-        var rotated = rotateMatrix(matrix2x2);
+        var rotated = rotateMatrix(matrix);
         assertEquals(3, rotated[0][0]);
         assertEquals(1, rotated[0][1]);
         assertEquals(4, rotated[1][0]);
@@ -105,7 +105,7 @@ public class TestMatrixUtils {
 
     @Test
     void testPrintMatrix() {
-        MatrixUtils.toString(matrix2x2);
+        MatrixUtils.toString(matrix);
         MatrixUtils.toString(matrix3x3);
         MatrixUtils.toString(matrix4x4);
     }
@@ -225,5 +225,78 @@ public class TestMatrixUtils {
                 assertEquals(0, anInt);
             }
         }
+    }
+
+    @Test
+    void testZeroRowsAndColumn01() {
+        int[][] matrix = new int[2][2];
+        matrix[0][0] = 1;
+        matrix[0][1] = 0;
+        matrix[1][0] = 3;
+        matrix[1][1] = 4;
+        int[][] zeroed = zeroRowsAndCols(matrix);
+        assertEquals(0, zeroed[0][0]);
+        assertEquals(0, zeroed[0][1]);
+        assertEquals(3, zeroed[1][0]);
+        assertEquals(0, zeroed[1][1]);
+
+        matrix = new int[2][2];
+        matrix[0][0] = 0;
+        matrix[0][1] = 0;
+        matrix[1][0] = 3;
+        matrix[1][1] = 4;
+        zeroed = zeroRowsAndCols(matrix);
+        assertEquals(0, zeroed[0][0]);
+        assertEquals(0, zeroed[0][1]);
+        assertEquals(0, zeroed[1][0]);
+        assertEquals(0, zeroed[1][1]);
+    }
+
+    @Test
+    void testZeroRowsAndColumn02() {
+        matrix = new int[3][3];
+        matrix[0][0] = 1;
+        matrix[0][1] = 2;
+        matrix[0][2] = 3;
+        matrix[1][0] = 4;
+        matrix[1][1] = 5;
+        matrix[1][2] = 0;
+        matrix[2][0] = 7;
+        matrix[2][1] = 8;
+        matrix[2][2] = 9;
+        int[][] zeroed = zeroRowsAndCols(matrix);
+        assertEquals(1, zeroed[0][0]);
+        assertEquals(2, zeroed[0][1]);
+        assertEquals(0, zeroed[0][2]);
+        assertEquals(0, zeroed[1][0]);
+        assertEquals(0, zeroed[1][1]);
+        assertEquals(0, zeroed[1][2]);
+        assertEquals(7, zeroed[2][0]);
+        assertEquals(8, zeroed[2][1]);
+        assertEquals(0, zeroed[2][2]);
+    }
+
+    @Test
+    void testZeroRowsAndColumn03() {
+        matrix = new int[3][3];
+        matrix[0][0] = 1;
+        matrix[0][1] = 2;
+        matrix[0][2] = 3;
+        matrix[1][0] = 4;
+        matrix[1][1] = 5;
+        matrix[1][2] = 0;
+        matrix[2][0] = 7;
+        matrix[2][1] = 8;
+        matrix[2][2] = 0;
+        int[][] zeroed = zeroRowsAndCols(matrix);
+        assertEquals(1, zeroed[0][0]);
+        assertEquals(2, zeroed[0][1]);
+        assertEquals(0, zeroed[0][2]);
+        assertEquals(0, zeroed[1][0]);
+        assertEquals(0, zeroed[1][1]);
+        assertEquals(0, zeroed[1][2]);
+        assertEquals(0, zeroed[2][0]);
+        assertEquals(0, zeroed[2][1]);
+        assertEquals(0, zeroed[2][2]);
     }
 }
