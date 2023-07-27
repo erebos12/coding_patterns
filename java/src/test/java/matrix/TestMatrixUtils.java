@@ -127,12 +127,12 @@ public class TestMatrixUtils {
         matrix = randomMatrix(20, 20);
         transposed = transpose(matrix);
         checkTransposedMatrix(matrix, transposed);
+
+
     }
 
     @Test
     void testTransposeExceptions() {
-        Assertions.assertThrows(AssertionError.class, () -> randomMatrix(1, 2), "AssertionError was expected");
-
         Assertions.assertThrows(AssertionError.class, () -> randomMatrix(0, 1), "AssertionError was expected");
 
         Assertions.assertThrows(AssertionError.class, () -> randomMatrix(1, 0), "AssertionError was expected");
@@ -152,9 +152,17 @@ public class TestMatrixUtils {
     void testRandomMatrix() {
         int[][] m = randomMatrix(3, 3);
         assertEquals(m.length, 3);
-        MatrixUtils.toString(m);
+        assertEquals(m[0].length, 3);
+        assertEquals(m[1].length, 3);
+        assertEquals(m[2].length, 3);
         m = randomMatrix(2, 2);
         assertEquals(m.length, 2);
+        assertEquals(m[0].length, 2);
+        assertEquals(m[1].length, 2);
+        m = randomMatrix(2, 4);
+        assertEquals(m.length, 2);
+        assertEquals(m[0].length, 4);
+        assertEquals(m[1].length, 4);
     }
 
     @Test
