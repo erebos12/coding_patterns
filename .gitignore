@@ -2,6 +2,7 @@
 .gradle
 java/build
 java/out
+java/bin
 gradle
 
 .dcignore
