@@ -31,6 +31,15 @@ The in-place reversal of a linked list pattern allows us to reverse a linked lis
 
 ## 6. Two Heaps
 
+As the name suggests, the two heaps pattern uses either two min-heaps, two max-heaps, or a min-heap and a max-heap simultaneously to solve the problem. Priority queues are often referred to as "heaps". Useful is this when you
+need to find two or more extreme values (>=2 minima / >=2 maxima) in a often changing data set which is unsorted.
+
+Heap definition:
+
+A heap is a specialized tree-based data structure that satisfies the heap property: In a max heap, for any given node C, if P is a parent node of C, then the key (the value) of P is greater than or equal to the key of C. In a min heap, the key of P is less than or equal to the key of C.
+
+
+
 ## 7. K-way merge
 
 ## 8. Top K Elements
