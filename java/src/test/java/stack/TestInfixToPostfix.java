@@ -3,9 +3,9 @@ package stack;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static stack.StackAlgorithms.infixToPostfix;
+import static stack.InfixToPostfix.infixToPostfix;
 
-public class StackAlgorithmsTest {
+public class TestInfixToPostfix {
 
     @Test
     void testInfixToPostfix01() {

@@ -3,7 +3,7 @@ package stack;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
-public class StackAlgorithms {
+public class InfixToPostfix {
 
     static int getPrecedence(char ch) {
         return switch (ch) {
