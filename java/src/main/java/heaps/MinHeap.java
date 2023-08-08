@@ -3,8 +3,7 @@ package heaps;
 public class MinHeap {
 
     public static void buildMinHeap(int[] heapArray, int heapSize) {
-
-        // swap largest child to parent node
+        // swap smallest child to parent node
         for (int i = (heapSize - 1) / 2; i >= 0; i--) {
             minHeapify(heapArray, i, heapSize);
         }
