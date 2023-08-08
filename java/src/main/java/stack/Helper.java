@@ -8,11 +8,4 @@ public class Helper {
             default -> false;
         };
     }
-
-    public static boolean isOpeningBracket(char x) {
-        return switch (x) {
-            case '(', '{', '[', '/' -> true;
-            default -> false;
-        };
-    }
 }
