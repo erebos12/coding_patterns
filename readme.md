@@ -37,12 +37,15 @@ need to find two or more extreme values (>=2 minima / >=2 maxima) in a often cha
 Heap definition:
 
 A heap is a specialized tree-based data structure that satisfies the heap property: In a max heap, for any given node C, if P is a parent node of C, then the key (the value) of P is greater than or equal to the key of C. In a min heap, the key of P is less than or equal to the key of C.
-
-
+To keep track of the smallest or largest n elements a heap is the data structure to go for.
 
 ## 7. K-way merge
 
 ## 8. Top K Elements
+
+The top K elements pattern helps find some specific k number of elements from the given data with optimum time complexity.
+
+
 
 ## 9. Modified Binary Search
 
