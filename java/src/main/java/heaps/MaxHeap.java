@@ -2,7 +2,14 @@ package heaps;
 
 public class MaxHeap {
 
-    private void maxHeapify(int[] heapArray, int index, int heapSize) {
+    public static void buildMaxHeap(int[] heapArray, int heapSize) {
+        // swap largest child to parent node
+        for (int i = (heapSize - 1) / 2; i >= 0; i--) {
+            maxHeapify(heapArray, i, heapSize);
+        }
+    }
+
+    private static void maxHeapify(int[] heapArray, int index, int heapSize) {
         int largest = index;
         while (largest < heapSize / 2) {      // check parent nodes only
             int left = (2 * index) + 1;       //left child
@@ -20,13 +27,6 @@ public class MaxHeap {
                 index = largest;
             } else
                 break; // if heap property is satisfied
-        }
-    }
-
-    public void buildMaxHeap(int[] heapArray, int heapSize) {
-        // swap largest child to parent node
-        for (int i = (heapSize - 1) / 2; i >= 0; i--) {
-            maxHeapify(heapArray, i, heapSize);
         }
     }
 }

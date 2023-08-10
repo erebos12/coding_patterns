@@ -11,7 +11,7 @@ public class TestMaxHeap {
         int[] heapArray = {1, 4, 7, 12, 15, 14, 9, 2, 3, 16};
 
         System.out.println("Before heapify: " + Arrays.toString(heapArray));
-        new MaxHeap().buildMaxHeap(heapArray, heapArray.length);
+        MaxHeap.buildMaxHeap(heapArray, heapArray.length);
         System.out.println("After heapify: " + Arrays.toString(heapArray));
     }
 }
