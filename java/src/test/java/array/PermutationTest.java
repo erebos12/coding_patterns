@@ -120,6 +120,30 @@ public class PermutationTest {
         res = composePermutations(b, a);
         assertArrayEquals(new int[]{1, 3, 2, 5, 4}, res);
 
+        a = new int[]{2, 4, 3, 1, 7, 6, 5};
+        res = composePermutations(a, a);
+        res = composePermutations(res, a);
+        assertArrayEquals(new int[]{5, 7}, res);
+    }
+
+    @Test
+    void testComposePermutation_3_times_a() {
+        int[] a = new int[]{2, 4, 3, 1, 7, 6, 5};
+        int[] res = composePermutations(a, a);
+        res = composePermutations(res, a);
+        assertArrayEquals(new int[]{1, 2, 3, 4, 7, 6, 5}, res);
+    }
+
+    @Test
+    void testComposePermutation_6_times_a() {
+        int[] a = new int[]{2, 4, 3, 1, 7, 6, 5};
+        int[] res = composePermutations(a, a);
+        res = composePermutations(res, a);
+        res = composePermutations(res, a);
+        res = composePermutations(res, a);
+        res = composePermutations(res, a);
+        int[] id = new int[]{1, 2, 3, 4, 5, 6, 7};
+        assertArrayEquals(id, res);
     }
 
     @Test
