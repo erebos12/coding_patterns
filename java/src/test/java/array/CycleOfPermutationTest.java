@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
+import static arrays.Permutation.createIdentityPermutation;
 import static arrays.Permutation.getPermutationCycles;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -109,9 +110,14 @@ public class CycleOfPermutationTest {
     }
 
     @Test
-    void testPermutationCycles_id() {
-        int[] permutation = new int[]{1, 2, 3, 4};
-        ArrayList<ArrayList<Integer>> cycles = getPermutationCycles(permutation);
+    void testPermutationCycles_id_8() {
+        ArrayList<ArrayList<Integer>> cycles = getPermutationCycles(createIdentityPermutation(8));
+        assertEquals(0, cycles.size());
+    }
+
+    @Test
+    void testPermutationCycles_id_20() {
+        ArrayList<ArrayList<Integer>> cycles = getPermutationCycles(createIdentityPermutation(20));
         assertEquals(0, cycles.size());
     }
 }
