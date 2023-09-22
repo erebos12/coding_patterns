@@ -95,6 +95,20 @@ public class CycleOfPermutationTest {
     }
 
     @Test
+    void testPermutationCycles_08() {
+        int[] permutation = new int[]{3, 6, 4, 1, 5, 2};
+        ArrayList<ArrayList<Integer>> cycles = getPermutationCycles(permutation);
+        assertEquals(2, cycles.size());
+        var cycle1 = cycles.get(0);
+        assertEquals(3, cycle1.get(0));
+        assertEquals(4, cycle1.get(1));
+        assertEquals(1, cycle1.get(2));
+        var cycle2 = cycles.get(1);
+        assertEquals(6, cycle2.get(0));
+        assertEquals(2, cycle2.get(1));
+    }
+
+    @Test
     void testPermutationCycles_id() {
         int[] permutation = new int[]{1, 2, 3, 4};
         ArrayList<ArrayList<Integer>> cycles = getPermutationCycles(permutation);

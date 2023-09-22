@@ -109,6 +109,10 @@ public class Permutation {
     }
 
 
+    /* Convention:
+       - (x) - cycle with one element will be ignored, does not count as a cycle
+       - (1)(2)(3) - id permutation will be empty array which corresponds to notation ()
+     */
     public static ArrayList<ArrayList<Integer>> getPermutationCycles(int[] permutation) {
         ArrayList<ArrayList<Integer>> cycles = new ArrayList<>();
         ArrayList<Integer> cycle = new ArrayList<>();
