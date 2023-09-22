@@ -6,8 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static arrays.Permutation.*;
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class CycleOfPermutationTest {
 
@@ -196,5 +195,43 @@ public class CycleOfPermutationTest {
         System.out.println(type);
         // Then
         assertArrayEquals(List.of(2, 2).toArray(), type.toArray());
+    }
+
+    @Test
+    void testArePermutationsInSameClass01() {
+        // Given
+        int[] permutation = new int[]{2, 1, 4, 3};
+        int[] inverse = invertPermutation(permutation);
+        // When
+        boolean sameClass = arePermutationsInSameClass(permutation, inverse);
+        // Then
+        assertTrue(sameClass);
+    }
+
+    @Test
+    void testArePermutationsInSameClass02() {
+        // Given
+        int[] permutation = new int[]{2, 1, 4, 3};
+        int[] inverse = invertPermutation(permutation);
+        // When
+        boolean sameClass = arePermutationsInSameClass(permutation, inverse);
+        // Then
+        assertTrue(sameClass);
+    }
+
+    /*
+    Komposition weist unabhängig von der Reihenfolge der Operanden den gleichen Zykeltyp auf.
+     */
+    @Test
+    void testArePermutationsInSameClass_composed() {
+        // Given
+        int[] permutation1 = new int[]{2, 1, 4, 3};
+        int[] permutation2 = new int[]{2, 3, 4, 1};
+        var composed1 = composePermutations(permutation1, permutation2);
+        var composed2 = composePermutations(permutation2, permutation1);
+        // When
+        boolean sameClass = arePermutationsInSameClass(composed1, composed2);
+        // Then
+        assertTrue(sameClass);
     }
 }

@@ -145,4 +145,12 @@ public class Permutation {
         Collections.sort(type);
         return type;
     }
+
+    /*
+    Calculates whether 2 permutations are in the same permutation class.
+    See https://de.wikipedia.org/wiki/Zykeltyp -> Zykelklassen
+   */
+    public static boolean arePermutationsInSameClass(int[] permutation1, int[] permutation2) {
+        return permutationCycleType(permutation1).equals(permutationCycleType(permutation2));
+    }
 }
