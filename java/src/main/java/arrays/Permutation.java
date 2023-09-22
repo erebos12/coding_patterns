@@ -127,7 +127,6 @@ public class Permutation {
                 permutation[i] = -1; // touched this already, so ignore later on
             }
             if (!cycle.isEmpty()) {
-                System.out.println(cycle);
                 cycles.add(cycle);
                 cycle = new ArrayList<>(); // start a new empty cycle
             }
