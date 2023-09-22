@@ -148,4 +148,53 @@ public class CycleOfPermutationTest {
         // Then
         assertArrayEquals(List.of(1, 1, 1, 1).toArray(), type.toArray());
     }
+
+    @Test
+    void testGetCycleTypeOfPermutation_fixpunktfrei_01() {
+        // see https://de.wikipedia.org/wiki/Fixpunktfreie_Permutation
+        // Given
+        int[] permutation = new int[]{3, 4, 2, 1};
+        // When
+        ArrayList<Integer> type = permutationCycleType(permutation);
+        // Then
+        assertArrayEquals(List.of(4).toArray(), type.toArray());
+    }
+
+    @Test
+    void testGetCycleTypeOfPermutation_fixpunktfrei_02() {
+        // see https://de.wikipedia.org/wiki/Fixpunktfreie_Permutation
+        // Given
+        int[] permutation = new int[]{2, 1, 4, 3};
+        // When
+        ArrayList<Integer> type = permutationCycleType(permutation);
+        // Then
+        assertArrayEquals(List.of(2, 2).toArray(), type.toArray());
+    }
+
+    @Test
+    void testGetCycleTypeOfPermutation_transposition() {
+        // Transpositionen = Vertauschung von genau zwei Elementen
+        // Given
+        int[] permutation = new int[]{1, 2, 4, 3};
+        // When
+        ArrayList<Integer> type = permutationCycleType(permutation);
+        // Then
+        assertArrayEquals(List.of(1, 1, 2).toArray(), type.toArray());
+    }
+
+    /*
+        See  https://de.wikipedia.org/wiki/Selbstinverse_Permutation
+        Eine Permutation genau dann selbstinvers, wenn ihre Zyklendarstellung
+        ausschließlich aus Zyklen der Länge eins oder zwei besteht.
+     */
+    @Test
+    void testGetCycleTypeOfPermutation_self_inverse_permutation() {
+        // Given
+        int[] permutation = new int[]{2, 1, 4, 3};
+        // When
+        ArrayList<Integer> type = permutationCycleType(permutation);
+        System.out.println(type);
+        // Then
+        assertArrayEquals(List.of(2, 2).toArray(), type.toArray());
+    }
 }
