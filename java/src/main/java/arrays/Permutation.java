@@ -1,5 +1,7 @@
 package arrays;
 
+import java.util.ArrayList;
+
 import static matrix.MatrixUtils.createZeroMatrix;
 import static matrix.MatrixUtils.transpose;
 
@@ -104,5 +106,26 @@ public class Permutation {
             id[i] = i + 1;
         }
         return id;
+    }
+
+
+    public static ArrayList<ArrayList<Integer>> getPermutationCycles(int[] permutation) {
+        ArrayList<ArrayList<Integer>> cycles = new ArrayList<>();
+        ArrayList<Integer> cycle = new ArrayList<>();
+        for (int i = 0; i < permutation.length; i++) {
+            int value = permutation[i];
+            while (value != -1 && value != i + 1 && !cycle.contains(value)) {
+                cycle.add(value);
+                i = value - 1;
+                value = permutation[i];
+                permutation[i] = -1; // touched this already, so ignore later on
+            }
+            if (!cycle.isEmpty()) {
+                System.out.println(cycle);
+                cycles.add(cycle);
+                cycle = new ArrayList<>(); // start a new empty cycle
+            }
+        }
+        return cycles;
     }
 }
