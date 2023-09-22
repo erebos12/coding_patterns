@@ -108,7 +108,6 @@ public class Permutation {
         return id;
     }
 
-
     /*
      This method converts a permutation in index-notation to the shorter
      permutation-cycle notation. The cycle notation is at the same time
@@ -130,7 +129,6 @@ public class Permutation {
                 permutation[i] = -1; // touched this already, so ignore later on
             }
             if (!cycle.isEmpty()) {
-                System.out.println(cycle);
                 cycles.add(cycle);
                 cycle = new ArrayList<>(); // start a new empty cycle
             }
