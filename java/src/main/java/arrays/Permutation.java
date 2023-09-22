@@ -109,7 +109,12 @@ public class Permutation {
     }
 
 
-    /* Convention:
+    /*
+     This method converts a permutation in index-notation to the shorter
+     permutation-cycle notation. The cycle notation is at the same time
+     the decomposition of a permutation in its cycles.
+     See https://en.wikipedia.org/wiki/Cyclic_permutation
+     Convention:
        - (x) - cycle with one element will be ignored, does not count as a cycle
        - (1)(2)(3) - id permutation will be empty array which corresponds to notation ()
      */
