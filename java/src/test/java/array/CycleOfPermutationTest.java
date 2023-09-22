@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import static arrays.Permutation.createIdentityPermutation;
 import static arrays.Permutation.getPermutationCycles;
@@ -20,12 +21,8 @@ public class CycleOfPermutationTest {
         ArrayList<ArrayList<Integer>> cycles = getPermutationCycles(permutation);
         // Then
         assertEquals(1, cycles.size());
-        ArrayList<Integer> cycle1 = new ArrayList<>(Arrays.asList(3, 2, 4, 1));
-        ArrayList<ArrayList<Integer>> expected = new ArrayList<>();
-        expected.add(cycle1);
-        assertArrayEquals(expected.get(0).toArray(), cycles.get(0).toArray());
+        assertArrayEquals(List.of(3, 2, 4, 1).toArray(), cycles.get(0).toArray());
     }
-
 
     @Test
     void testPermutationCycles_02() {
@@ -34,11 +31,9 @@ public class CycleOfPermutationTest {
         // When
         ArrayList<ArrayList<Integer>> cycles = getPermutationCycles(permutation);
         // Then
-        assertEquals(1, cycles.size());
-        ArrayList<Integer> cycle1 = new ArrayList<>(Arrays.asList(3, 2, 1));
-        ArrayList<ArrayList<Integer>> expected = new ArrayList<>();
-        expected.add(cycle1);
-        assertArrayEquals(expected.get(0).toArray(), cycles.get(0).toArray());
+        assertEquals(2, cycles.size());
+        assertArrayEquals(List.of(3, 2, 1).toArray(), cycles.get(0).toArray());
+        assertArrayEquals(List.of(4).toArray(), cycles.get(1).toArray());
     }
 
     @Test
@@ -46,18 +41,12 @@ public class CycleOfPermutationTest {
         // Given
         int[] permutation = new int[]{3, 4, 1, 2};
         // When
-        ArrayList<ArrayList<Integer>> actual = getPermutationCycles(permutation);
+        ArrayList<ArrayList<Integer>> cycles = getPermutationCycles(permutation);
         // Then
-        assertEquals(2, actual.size());
-        ArrayList<Integer> cycle1 = new ArrayList<>(Arrays.asList(3, 1));
-        ArrayList<Integer> cycle2 = new ArrayList<>(Arrays.asList(4, 2));
-        ArrayList<ArrayList<Integer>> expected = new ArrayList<>();
-        expected.add(cycle1);
-        expected.add(cycle2);
-        assertArrayEquals(expected.get(0).toArray(), actual.get(0).toArray());
-        assertArrayEquals(expected.get(1).toArray(), actual.get(1).toArray());
+        assertEquals(2, cycles.size());
+        assertArrayEquals(List.of(3, 1).toArray(), cycles.get(0).toArray());
+        assertArrayEquals(List.of(4, 2).toArray(), cycles.get(1).toArray());
     }
-
 
     @Test
     void testPermutationCycles_04() {
@@ -66,11 +55,9 @@ public class CycleOfPermutationTest {
         // When
         ArrayList<ArrayList<Integer>> cycles = getPermutationCycles(permutation);
         // Then
-        assertEquals(1, cycles.size());
-        ArrayList<Integer> cycle1 = new ArrayList<>(Arrays.asList(4, 3, 2));
-        ArrayList<ArrayList<Integer>> expected = new ArrayList<>();
-        expected.add(cycle1);
-        assertArrayEquals(expected.get(0).toArray(), cycles.get(0).toArray());
+        assertEquals(2, cycles.size());
+        assertArrayEquals(List.of(1).toArray(), cycles.get(0).toArray());
+        assertArrayEquals(List.of(4, 3, 2).toArray(), cycles.get(1).toArray());
     }
 
     @Test
@@ -81,10 +68,7 @@ public class CycleOfPermutationTest {
         ArrayList<ArrayList<Integer>> cycles = getPermutationCycles(permutation);
         // Then
         assertEquals(1, cycles.size());
-        ArrayList<Integer> cycle1 = new ArrayList<>(Arrays.asList(5, 2, 3, 4, 1));
-        ArrayList<ArrayList<Integer>> expected = new ArrayList<>();
-        expected.add(cycle1);
-        assertArrayEquals(expected.get(0).toArray(), cycles.get(0).toArray());
+        assertArrayEquals(List.of(5, 2, 3, 4, 1).toArray(), cycles.get(0).toArray());
     }
 
     @Test
@@ -94,11 +78,11 @@ public class CycleOfPermutationTest {
         // When
         ArrayList<ArrayList<Integer>> cycles = getPermutationCycles(permutation);
         // Then
-        assertEquals(1, cycles.size());
-        ArrayList<Integer> cycle1 = new ArrayList<>(Arrays.asList(3, 2));
-        ArrayList<ArrayList<Integer>> expected = new ArrayList<>();
-        expected.add(cycle1);
-        assertArrayEquals(expected.get(0).toArray(), cycles.get(0).toArray());
+        assertEquals(4, cycles.size());
+        assertArrayEquals(List.of(1).toArray(), cycles.get(0).toArray());
+        assertArrayEquals(List.of(3, 2).toArray(), cycles.get(1).toArray());
+        assertArrayEquals(List.of(4).toArray(), cycles.get(2).toArray());
+        assertArrayEquals(List.of(5).toArray(), cycles.get(3).toArray());
     }
 
     @Test
@@ -106,18 +90,12 @@ public class CycleOfPermutationTest {
         // Given
         int[] permutation = new int[]{1, 3, 2, 5, 4};
         // When
-        ArrayList<ArrayList<Integer>> actual = getPermutationCycles(permutation);
+        ArrayList<ArrayList<Integer>> cycles = getPermutationCycles(permutation);
         // Then
-        assertEquals(2, actual.size());
-        ArrayList<Integer> cycle1 = new ArrayList<>(Arrays.asList(3, 2));
-        ArrayList<Integer> cycle2 = new ArrayList<>(Arrays.asList(5, 4));
-        ArrayList<ArrayList<Integer>> expected = new ArrayList<>();
-        expected.add(cycle1);
-        expected.add(cycle2);
-        var ec1 = expected.get(0);
-        assertArrayEquals(ec1.toArray(), actual.get(0).toArray());
-        var ec2 = expected.get(1);
-        assertArrayEquals(ec2.toArray(), actual.get(1).toArray());
+        assertEquals(3, cycles.size());
+        assertArrayEquals(List.of(1).toArray(), cycles.get(0).toArray());
+        assertArrayEquals(List.of(3, 2).toArray(), cycles.get(1).toArray());
+        assertArrayEquals(List.of(5, 4).toArray(), cycles.get(2).toArray());
     }
 
     @Test
@@ -125,29 +103,31 @@ public class CycleOfPermutationTest {
         // Given
         int[] permutation = new int[]{3, 6, 4, 1, 5, 2};
         // When
-        ArrayList<ArrayList<Integer>> actual = getPermutationCycles(permutation);
+        ArrayList<ArrayList<Integer>> cycles = getPermutationCycles(permutation);
         // Then
-        assertEquals(2, actual.size());
-        ArrayList<Integer> cycle1 = new ArrayList<>(Arrays.asList(3, 4, 1));
-        ArrayList<Integer> cycle2 = new ArrayList<>(Arrays.asList(6, 2));
-        ArrayList<ArrayList<Integer>> expected = new ArrayList<>();
-        expected.add(cycle1);
-        expected.add(cycle2);
-        var ec1 = expected.get(0);
-        assertArrayEquals(ec1.toArray(), actual.get(0).toArray());
-        var ec2 = expected.get(1);
-        assertArrayEquals(ec2.toArray(), actual.get(1).toArray());
+        assertEquals(3, cycles.size());
+        assertArrayEquals(List.of(3, 4, 1).toArray(), cycles.get(0).toArray());
+        assertArrayEquals(List.of(6, 2).toArray(), cycles.get(1).toArray());
+        assertArrayEquals(List.of(5).toArray(), cycles.get(2).toArray());
     }
 
     @Test
     void testPermutationCycles_id_8() {
         ArrayList<ArrayList<Integer>> cycles = getPermutationCycles(createIdentityPermutation(8));
-        assertEquals(0, cycles.size());
+        assertEquals(8, cycles.size());
+        assertArrayEquals(List.of(1).toArray(), cycles.get(0).toArray());
+        assertArrayEquals(List.of(2).toArray(), cycles.get(1).toArray());
+        assertArrayEquals(List.of(3).toArray(), cycles.get(2).toArray());
+        assertArrayEquals(List.of(4).toArray(), cycles.get(3).toArray());
+        assertArrayEquals(List.of(5).toArray(), cycles.get(4).toArray());
+        assertArrayEquals(List.of(6).toArray(), cycles.get(5).toArray());
+        assertArrayEquals(List.of(7).toArray(), cycles.get(6).toArray());
+        assertArrayEquals(List.of(8).toArray(), cycles.get(7).toArray());
     }
 
     @Test
     void testPermutationCycles_id_20() {
         ArrayList<ArrayList<Integer>> cycles = getPermutationCycles(createIdentityPermutation(20));
-        assertEquals(0, cycles.size());
+        assertEquals(20, cycles.size());
     }
 }

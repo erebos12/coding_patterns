@@ -112,17 +112,14 @@ public class Permutation {
      This method converts a permutation in index-notation to the shorter
      permutation-cycle notation. The cycle notation is at the same time
      the decomposition of a permutation in its cycles.
-     See https://en.wikipedia.org/wiki/Cyclic_permutation
-     Convention:
-       - (x) - cycle with one element will be ignored, does not count as a cycle
-       - (1)(2)(3) - id permutation will be empty array which corresponds to notation ()
+     See https://en.wikipedia.org/wiki/Cyclic_permutation or https://de.wikipedia.org/wiki/Permutation#Zyklenschreibweise
      */
     public static ArrayList<ArrayList<Integer>> getPermutationCycles(int[] permutation) {
         ArrayList<ArrayList<Integer>> cycles = new ArrayList<>();
         ArrayList<Integer> cycle = new ArrayList<>();
         for (int i = 0; i < permutation.length; i++) {
             int value = permutation[i];
-            while (value != -1 && value != i + 1 && !cycle.contains(value)) {
+            while (value != -1 && !cycle.contains(value)) {
                 cycle.add(value);
                 i = value - 1;
                 value = permutation[i];
