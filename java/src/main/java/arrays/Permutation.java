@@ -1,6 +1,7 @@
 package arrays;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import static matrix.MatrixUtils.createZeroMatrix;
 import static matrix.MatrixUtils.transpose;
@@ -132,5 +133,17 @@ public class Permutation {
             }
         }
         return cycles;
+    }
+
+    /*
+      Calculates the cycle-type of a permutation.
+      See https://de.wikipedia.org/wiki/Zykeltyp
+     */
+    public static ArrayList<Integer> permutationCycleType(int[] permutation) {
+        ArrayList<Integer> type = new ArrayList<>();
+        ArrayList<ArrayList<Integer>> cycles = getPermutationCycles(permutation);
+        cycles.forEach(c -> type.add(c.size()));
+        Collections.sort(type);
+        return type;
     }
 }

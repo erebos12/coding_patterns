@@ -3,11 +3,9 @@ package array;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-import static arrays.Permutation.createIdentityPermutation;
-import static arrays.Permutation.getPermutationCycles;
+import static arrays.Permutation.*;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -129,5 +127,25 @@ public class CycleOfPermutationTest {
     void testPermutationCycles_id_20() {
         ArrayList<ArrayList<Integer>> cycles = getPermutationCycles(createIdentityPermutation(20));
         assertEquals(20, cycles.size());
+    }
+
+    @Test
+    void testGetCycleTypeOfPermutation_01() {
+        // Given
+        int[] permutation = new int[]{2, 4, 1, 3, 5, 7, 6};
+        // When
+        ArrayList<Integer> type = permutationCycleType(permutation);
+        // Then
+        assertArrayEquals(List.of(1, 2, 4).toArray(), type.toArray());
+    }
+
+    @Test
+    void testGetCycleTypeOfPermutation_id() {
+        // Given
+        int[] id = createIdentityPermutation(4);
+        // When
+        ArrayList<Integer> type = permutationCycleType(id);
+        // Then
+        assertArrayEquals(List.of(1, 1, 1, 1).toArray(), type.toArray());
     }
 }
