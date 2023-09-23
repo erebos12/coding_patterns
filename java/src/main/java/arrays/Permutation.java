@@ -110,8 +110,8 @@ public class Permutation {
     }
 
     /*
-     This method converts a permutation in index-notation to the shorter
-     permutation-cycle notation. The cycle notation is at the same time
+     This method converts a permutation in two-line-notation to the shorter
+     cycle-notation. The cycle notation is at the same time
      the decomposition of a permutation in its cycles.
      See https://en.wikipedia.org/wiki/Cyclic_permutation or https://de.wikipedia.org/wiki/Permutation#Zyklenschreibweise
      */
