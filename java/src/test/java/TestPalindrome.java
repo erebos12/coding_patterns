@@ -1,21 +1,24 @@
-import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static two_pointers.Palindrome.isPalindrome;
 
-public class TestPalindrome {
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
-    @Test
-    void testPalindrome() {
-        assertTrue(isPalindrome("relieffeiler"));
-        assertTrue(isPalindrome("anna"));
-        assertTrue(isPalindrome("Otto"));
-        assertTrue(isPalindrome("OttTo"));
-        assertFalse(isPalindrome("Alexa"));
-        assertTrue(isPalindrome("mmmmmmm"));
-        assertTrue(isPalindrome("iiiiiiiiiiiiiiii"));
-        assertTrue(isPalindrome("iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii"));
-        assertFalse(isPalindrome("hgj"));
-    }
+class TestPalindrome {
+
+
+  @ParameterizedTest
+  @CsvSource({
+      "'', true",                // leerer String
+      "'a', true",               // einzelner Buchstabe
+      "'radar', true",           // Palindrom
+      "'reliefeiler', true",     // Palindrom
+      "'hello', false",          // kein Palindrom
+      "'Racecar', true",         // Palindrom mit gemischter Groß-/Kleinschreibung
+      "'12321', true",           // numerisches Palindrom
+      "'12345', false"           // keine numerische Palindrom
+  })
+  void testPalindrome(String input, boolean expected) {
+    assertEquals(expected, isPalindrome(input));
+  }
 }
